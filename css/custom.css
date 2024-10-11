@@ -1548,7 +1548,7 @@ header.main-header .header-sticky.active {
 .contact-form {
 	background-color: var(--white-color);
 	border-radius: 40px;
-	padding: 50px;
+	padding: 80px 50px;
 }
 
 .contact-form .form-control {
