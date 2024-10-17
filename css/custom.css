@@ -335,9 +335,9 @@ body {
 
 .loading-container,
 .loading {
-	height: 130px;
+	height: 190px;
 	position: relative;
-	width: 130px;
+	width: 190px;
 	border-radius: 100%;
 }
 
@@ -362,7 +362,7 @@ body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 70%;
+	width: 80%;
 	transform: translate(-50%, -50%);
 }
 
