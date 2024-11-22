@@ -1,299 +1,311 @@
 (function ($) {
-	"use strict";
+  "use strict";
 
-	var $window = $(window);
-	var $body = $('body');
+  var $window = $(window);
+  var $body = $("body");
 
+  $(document).ready(function () {
+    // Show the preloader when the document is ready
+    $(".preloader").show();
+  });
 
+  $(window).on("load", function () {
+    // Hide the preloader once the entire page is fully loaded
+    $(".preloader").fadeOut(500); // Adjust fade-out time if needed
+  });
 
-	$(document).ready(function () {
-		// Show the preloader when the document is ready
-		$(".preloader").show();
-	});
+  /* Sticky Header */
+  if ($(".active-sticky-header").length) {
+    $window.on("resize", function () {
+      setHeaderHeight();
+    });
 
-	$(window).on("load", function () {
-		// Hide the preloader once the entire page is fully loaded
-		$(".preloader").fadeOut(500); // Adjust fade-out time if needed
-	});
+    function setHeaderHeight() {
+      $("header.main-header").css(
+        "height",
+        $("header .header-sticky").outerHeight()
+      );
+    }
 
+    $(window).on("scroll", function () {
+      var fromTop = $(window).scrollTop();
+      setHeaderHeight();
+      var headerHeight = $("header .header-sticky").outerHeight();
+      $("header .header-sticky").toggleClass(
+        "hide",
+        fromTop > headerHeight + 100
+      );
+      $("header .header-sticky").toggleClass("active", fromTop > 600);
+    });
+  }
 
-	/* Sticky Header */
-	if ($('.active-sticky-header').length) {
-		$window.on('resize', function () {
-			setHeaderHeight();
-		});
+  /* Slick Menu JS */
+  $("#menu").slicknav({
+    label: "",
+    prependTo: ".responsive-menu",
+  });
 
-		function setHeaderHeight() {
-			$("header.main-header").css("height", $('header .header-sticky').outerHeight());
-		}
+  if ($("a[href='#top']").length) {
+    $("a[href='#top']").click(function () {
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      return false;
+    });
+  }
 
-		$(window).on("scroll", function () {
-			var fromTop = $(window).scrollTop();
-			setHeaderHeight();
-			var headerHeight = $('header .header-sticky').outerHeight()
-			$("header .header-sticky").toggleClass("hide", (fromTop > headerHeight + 100));
-			$("header .header-sticky").toggleClass("active", (fromTop > 600));
-		});
-	}
+  /* Services Single Image Carousel JS */
+  if ($(".service-images-slider").length) {
+    const property_photos_carousel = new Swiper(
+      ".service-images-slider .swiper",
+      {
+        slidesPerView: 1,
+        speed: 1000,
+        spaceBetween: 10,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 5000,
+        },
+        navigation: {
+          nextEl: ".swiper-arrow-next",
+          prevEl: ".swiper-arrow-prev",
+        },
+      }
+    );
+  }
 
+  /* Init Counter */
+  if ($(".counter").length) {
+    $(".counter").counterUp({ delay: 6, time: 3000 });
+  }
 
-	/* Slick Menu JS */
-	$('#menu').slicknav({
-		label: '',
-		prependTo: '.responsive-menu'
-	});
+  /* Image Reveal Animation */
+  if ($(".reveal").length) {
+    gsap.registerPlugin(ScrollTrigger);
+    let revealContainers = document.querySelectorAll(".reveal");
+    revealContainers.forEach((container) => {
+      let image = container.querySelector("img");
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          toggleActions: "play none none none",
+        },
+      });
+      tl.set(container, {
+        autoAlpha: 1,
+      });
+      tl.from(container, 1, {
+        xPercent: -100,
+        ease: Power2.out,
+      });
+      tl.from(image, 1, {
+        xPercent: 100,
+        scale: 1,
+        delay: -1,
+        ease: Power2.out,
+      });
+    });
+  }
 
+  /* Text Effect Animation */
+  if ($(".text-anime-style-1").length) {
+    let staggerAmount = 0.05,
+      translateXValue = 0,
+      delayValue = 0.5,
+      animatedTextElements = document.querySelectorAll(".text-anime-style-1");
 
-	if ($("a[href='#top']").length) {
-		$("a[href='#top']").click(function () {
-			$("html, body").animate({ scrollTop: 0 }, "slow");
-			return false;
-		});
-	}
+    animatedTextElements.forEach((element) => {
+      let animationSplitText = new SplitText(element, { type: "chars, words" });
+      gsap.from(animationSplitText.words, {
+        duration: 1,
+        delay: delayValue,
+        x: 20,
+        autoAlpha: 0,
+        stagger: staggerAmount,
+        scrollTrigger: { trigger: element, start: "top 85%" },
+      });
+    });
+  }
 
+  if ($(".text-anime-style-2").length) {
+    let staggerAmount = 0.05,
+      translateXValue = 20,
+      delayValue = 0.5,
+      easeType = "power2.out",
+      animatedTextElements = document.querySelectorAll(".text-anime-style-2");
 
-	/* Services Single Image Carousel JS */
-	if ($('.service-images-slider').length) {
-		const property_photos_carousel = new Swiper('.service-images-slider .swiper', {
-			slidesPerView: 1,
-			speed: 1000,
-			spaceBetween: 10,
-			loop: true,
-			centeredSlides: true,
-			autoplay: {
-				delay: 5000,
-			},
-			navigation: {
-				nextEl: '.swiper-arrow-next',
-				prevEl: '.swiper-arrow-prev',
-			}
-		});
-	}
+    animatedTextElements.forEach((element) => {
+      let animationSplitText = new SplitText(element, { type: "chars, words" });
+      gsap.from(animationSplitText.chars, {
+        duration: 1,
+        delay: delayValue,
+        x: translateXValue,
+        autoAlpha: 0,
+        stagger: staggerAmount,
+        ease: easeType,
+        scrollTrigger: { trigger: element, start: "top 85%" },
+      });
+    });
+  }
 
-	/* Init Counter */
-	if ($('.counter').length) {
-		$('.counter').counterUp({ delay: 6, time: 3000 });
-	}
+  if ($(".text-anime-style-3").length) {
+    let animatedTextElements = document.querySelectorAll(".text-anime-style-3");
 
-	/* Image Reveal Animation */
-	if ($('.reveal').length) {
-		gsap.registerPlugin(ScrollTrigger);
-		let revealContainers = document.querySelectorAll(".reveal");
-		revealContainers.forEach((container) => {
-			let image = container.querySelector("img");
-			let tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: container,
-					toggleActions: "play none none none"
-				}
-			});
-			tl.set(container, {
-				autoAlpha: 1
-			});
-			tl.from(container, 1, {
-				xPercent: -100,
-				ease: Power2.out
-			});
-			tl.from(image, 1, {
-				xPercent: 100,
-				scale: 1,
-				delay: -1,
-				ease: Power2.out
-			});
-		});
-	}
+    animatedTextElements.forEach((element) => {
+      //Reset if needed
+      if (element.animation) {
+        element.animation.progress(1).kill();
+        element.split.revert();
+      }
 
-	/* Text Effect Animation */
-	if ($('.text-anime-style-1').length) {
-		let staggerAmount = 0.05,
-			translateXValue = 0,
-			delayValue = 0.5,
-			animatedTextElements = document.querySelectorAll('.text-anime-style-1');
+      element.split = new SplitText(element, {
+        type: "lines,words,chars",
+        linesClass: "split-line",
+      });
+      gsap.set(element, { perspective: 400 });
 
-		animatedTextElements.forEach((element) => {
-			let animationSplitText = new SplitText(element, { type: "chars, words" });
-			gsap.from(animationSplitText.words, {
-				duration: 1,
-				delay: delayValue,
-				x: 20,
-				autoAlpha: 0,
-				stagger: staggerAmount,
-				scrollTrigger: { trigger: element, start: "top 85%" },
-			});
-		});
-	}
+      gsap.set(element.split.chars, {
+        opacity: 0,
+        x: "50",
+      });
 
-	if ($('.text-anime-style-2').length) {
-		let staggerAmount = 0.05,
-			translateXValue = 20,
-			delayValue = 0.5,
-			easeType = "power2.out",
-			animatedTextElements = document.querySelectorAll('.text-anime-style-2');
+      element.animation = gsap.to(element.split.chars, {
+        scrollTrigger: { trigger: element, start: "top 90%" },
+        x: "0",
+        y: "0",
+        rotateX: "0",
+        opacity: 1,
+        duration: 1,
+        ease: Back.easeOut,
+        stagger: 0.02,
+      });
+    });
+  }
 
-		animatedTextElements.forEach((element) => {
-			let animationSplitText = new SplitText(element, { type: "chars, words" });
-			gsap.from(animationSplitText.chars, {
-				duration: 1,
-				delay: delayValue,
-				x: translateXValue,
-				autoAlpha: 0,
-				stagger: staggerAmount,
-				ease: easeType,
-				scrollTrigger: { trigger: element, start: "top 85%" },
-			});
-		});
-	}
+  /* Parallaxie js */
+  var $parallaxie = $(".parallaxie");
+  if ($parallaxie.length && $window.width() > 991) {
+    if ($window.width() > 768) {
+      $parallaxie.parallaxie({
+        speed: 0.55,
+        offset: 0,
+      });
+    }
+  }
 
-	if ($('.text-anime-style-3').length) {
-		let animatedTextElements = document.querySelectorAll('.text-anime-style-3');
+  /* Zoom Gallery screenshot */
+  $(".project-gallery-items").magnificPopup({
+    delegate: "a",
+    type: "image",
+    closeOnContentClick: false,
+    closeBtnInside: false,
+    mainClass: "mfp-with-zoom",
+    image: {
+      verticalFit: true,
+    },
+    gallery: {
+      enabled: true,
+    },
+    zoom: {
+      enabled: true,
+      duration: 300, // don't foget to change the duration also in CSS
+      opener: function (element) {
+        return element.find("img");
+      },
+    },
+  });
 
-		animatedTextElements.forEach((element) => {
-			//Reset if needed
-			if (element.animation) {
-				element.animation.progress(1).kill();
-				element.split.revert();
-			}
+  /* Contact form validation */
+  var $contactform = $("#contactForm");
+  $contactform.validator({ focus: false }).on("submit", function (event) {
+    if (!event.isDefaultPrevented()) {
+      event.preventDefault();
+      submitForm();
+    }
+  });
 
-			element.split = new SplitText(element, {
-				type: "lines,words,chars",
-				linesClass: "split-line",
-			});
-			gsap.set(element, { perspective: 400 });
+  function submitForm() {
+    /* Initiate Variables With Form Content*/
+    var fullname = $("#fullname").val();
+    var email = $("#email").val();
+    var phone = $("#phone").val();
+    var subject = $("#subject").val();
+    var message = $("#msg").val();
 
-			gsap.set(element.split.chars, {
-				opacity: 0,
-				x: "50",
-			});
+    $.ajax({
+      type: "POST",
+      url: "form-process.php",
+      data:
+        "fullname=" +
+        fullname +
+        "&name=" +
+        "&email=" +
+        email +
+        "&phone=" +
+        phone +
+        "&subject=" +
+        subject +
+        "&message=" +
+        message,
+      success: function (text) {
+        if (text == "success") {
+          formSuccess();
+        } else {
+          submitMSG(false, text);
+        }
+      },
+    });
+  }
 
-			element.animation = gsap.to(element.split.chars, {
-				scrollTrigger: { trigger: element, start: "top 90%" },
-				x: "0",
-				y: "0",
-				rotateX: "0",
-				opacity: 1,
-				duration: 1,
-				ease: Back.easeOut,
-				stagger: 0.02,
-			});
-		});
-	}
+  function formSuccess() {
+    $contactform[0].reset();
+    submitMSG(true, "Message Sent Successfully!");
+  }
 
-	/* Parallaxie js */
-	var $parallaxie = $('.parallaxie');
-	if ($parallaxie.length && ($window.width() > 991)) {
-		if ($window.width() > 768) {
-			$parallaxie.parallaxie({
-				speed: 0.55,
-				offset: 0,
-			});
-		}
-	}
+  function submitMSG(valid, msg) {
+    if (valid) {
+      var msgClasses = "h3 text-success";
+    } else {
+      var msgClasses = "h3 text-danger";
+    }
+    $("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
+  }
+  /* Contact form validation end */
 
-	/* Zoom Gallery screenshot */
-	$('.project-gallery-items').magnificPopup({
-		delegate: 'a',
-		type: 'image',
-		closeOnContentClick: false,
-		closeBtnInside: false,
-		mainClass: 'mfp-with-zoom',
-		image: {
-			verticalFit: true,
-		},
-		gallery: {
-			enabled: true
-		},
-		zoom: {
-			enabled: true,
-			duration: 300, // don't foget to change the duration also in CSS
-			opener: function (element) {
-				return element.find('img');
-			}
-		}
-	});
+  /* Animated Wow Js */
+  new WOW().init();
 
-	/* Contact form validation */
-	var $contactform = $("#contactForm");
-	$contactform.validator({ focus: false }).on("submit", function (event) {
-		if (!event.isDefaultPrevented()) {
-			event.preventDefault();
-			submitForm();
-		}
-	});
-
-	function submitForm() {
-		/* Initiate Variables With Form Content*/
-		var fullname = $("#fullname").val();
-		var email = $("#email").val();
-		var phone = $("#phone").val();
-		var subject = $("#subject").val();
-		var message = $("#msg").val();
-
-		$.ajax({
-			type: "POST",
-			url: "form-process.php",
-			data: "fullname=" + fullname + "&name=" + "&email=" + email + "&phone=" + phone + "&subject=" + subject + "&message=" + message,
-			success: function (text) {
-				if (text == "success") {
-					formSuccess();
-				} else {
-					submitMSG(false, text);
-				}
-			}
-		});
-	}
-
-	function formSuccess() {
-		$contactform[0].reset();
-		submitMSG(true, "Message Sent Successfully!")
-	}
-
-	function submitMSG(valid, msg) {
-		if (valid) {
-			var msgClasses = "h3 text-success";
-		} else {
-			var msgClasses = "h3 text-danger";
-		}
-		$("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
-	}
-	/* Contact form validation end */
-
-
-	/* Animated Wow Js */
-	new WOW().init();
-
-	/* Popup Video */
-	if ($('.popup-video').length) {
-		$('.popup-video').magnificPopup({
-			type: 'iframe',
-			mainClass: 'mfp-fade',
-			removalDelay: 160,
-			preloader: false,
-			fixedContentPos: true
-		});
-	}
-
+  /* Popup Video */
+  if ($(".popup-video").length) {
+    $(".popup-video").magnificPopup({
+      type: "iframe",
+      mainClass: "mfp-fade",
+      removalDelay: 160,
+      preloader: false,
+      fixedContentPos: true,
+    });
+  }
 })(jQuery);
 
 $(document).ready(function () {
-	const filterButtons = $(".portfolio-filters li");
-	const portfolioItems = $(".portfolio-item");
+  const filterButtons = $(".portfolio-filters li");
+  const portfolioItems = $(".portfolio-item");
 
-	filterButtons.on("click", function () {
-		const filterValue = $(this).attr("data-filter");
+  filterButtons.on("click", function () {
+    const filterValue = $(this).attr("data-filter");
 
-		// Remove 'filter-active' class from all buttons
-		filterButtons.removeClass("filter-active");
+    // Remove 'filter-active' class from all buttons
+    filterButtons.removeClass("filter-active");
 
-		// Add 'filter-active' class to the clicked button
-		$(this).addClass("filter-active");
+    // Add 'filter-active' class to the clicked button
+    $(this).addClass("filter-active");
 
-		// Show/Hide portfolio items based on filter
-		portfolioItems.each(function () {
-			if (filterValue === "*" || $(this).hasClass(filterValue.slice(1))) {
-				$(this).show();
-			} else {
-				$(this).hide();
-			}
-		});
-	});
+    // Show/Hide portfolio items based on filter
+    portfolioItems.each(function () {
+      if (filterValue === "*" || $(this).hasClass(filterValue.slice(1))) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+  });
 });

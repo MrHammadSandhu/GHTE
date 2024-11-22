@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
-  <!-- Mirrored from demo.awaikenthemes.com/html-preview/builtup/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Aug 2024 22:56:14 GMT -->
-
+<html lang="en">
   <head>
     <!-- Meta -->
     <meta charset="utf-8" />
@@ -37,6 +35,24 @@
     <link rel="stylesheet" href="css/mousecursor.css" />
     <!-- Main Custom Css -->
     <link href="css/custom.css" rel="stylesheet" media="screen" />
+
+    <style>
+      .language-select {
+        position: relative;
+        display: inline-block;
+      }
+      .language-select select {
+        padding-left: 40px;
+        background-image: url(""); /* Placeholder to offset */
+      }
+      .language-select .flag {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -47,7 +63,6 @@
         <div id="loading-icon"><img src="images/logo (2).png" alt="" /></div>
       </div>
     </div>
-    <!-- Preloader End -->
 
     <!-- Header Start -->
     <header class="main-header">
@@ -64,94 +79,175 @@
               <div class="nav-menu-wrapper">
                 <ul class="navbar-nav mr-auto" id="menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.html" data-key="home"
+                      >Home</a
+                    >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="about.html" data-key="aboutmenu"
+                      >About</a
+                    >
                   </li>
                   <li class="nav-item submenu">
-                    <a class="nav-link" href="#">Power</a>
+                    <a class="nav-link" href="#" data-key="power">Power</a>
                     <ul>
                       <li class="nav-item">
-                        <a class="nav-link" href="ups.html">UPS Systems</a>
+                        <a
+                          class="nav-link"
+                          href="ups.html"
+                          data-key="ups_system"
+                          >UPS Systems</a
+                        >
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="batteries.html">Batteries </a>
+                        <a
+                          class="nav-link"
+                          href="batteries.html"
+                          data-key="batteries"
+                          >Batteries
+                        </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="genrators.html"
+                        <a
+                          class="nav-link"
+                          href="genrators.html"
+                          data-key="generators"
                           >Generators
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="loadbank.html">Load Bank </a>
+                        <a
+                          class="nav-link"
+                          href="loadbank.html"
+                          data-key="load_bank"
+                          >Load Bank
+                        </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="avrs.html">AVRs </a>
+                        <a class="nav-link" href="avrs.html" data-key="avrs"
+                          >AVRs
+                        </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item submenu">
-                    <a class="nav-link" href="#">Security</a>
+                    <a class="nav-link" href="#" data-key="security"
+                      >Security</a
+                    >
                     <ul>
                       <li class="nav-item">
-                        <a class="nav-link" href="cctv.html">CCTV</a>
+                        <a class="nav-link" href="cctv.html" data-key="cctv"
+                          >CCTV</a
+                        >
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="accesscontrol.html"
+                        <a
+                          class="nav-link"
+                          href="accesscontrol.html"
+                          data-key="access_control"
                           >Access Control
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="fire-fighting.html"
+                        <a
+                          class="nav-link"
+                          href="fire-fighting.html"
+                          data-key="fire_fighting"
                           >Fire Fighting
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="cybersecurity.html"
+                        <a
+                          class="nav-link"
+                          href="cybersecurity.html"
+                          data-key="cyber_security"
                           >Cyber Security
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="sound-system.html"
+                        <a
+                          class="nav-link"
+                          href="sound-system.html"
+                          data-key="sound_system"
                           >Sound System
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item submenu">
-                    <a class="nav-link" href="#">IT</a>
+                    <a class="nav-link" href="#" data-key="it_service">IT</a>
                     <ul>
                       <!-- <li class="nav-item"><a class="nav-link" href="datacenter.html">Data
                                                 Center</a></li> -->
                       <li class="nav-item">
-                        <a class="nav-link" href="racks.html">Racks </a>
+                        <a class="nav-link" href="racks.html" data-key="racks"
+                          >Racks
+                        </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="networking.html"
+                        <a
+                          class="nav-link"
+                          href="networking.html"
+                          data-key="networking_switches"
                           >Networking / Switches
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="servercomputer.html"
+                        <a
+                          class="nav-link"
+                          href="servercomputer.html"
+                          data-key="servers_computers"
                           >Servers / Computers
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="project.html">Projects</a>
+                    <a class="nav-link" href="project.html" data-key="projects"
+                      >Projects</a
+                    >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact Us</a>
+                    <a
+                      class="nav-link"
+                      href="contact.html"
+                      data-key="contact_us"
+                      >Contact Us</a
+                    >
                   </li>
                   <li class="nav-item highlighted-menu">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="#" data-key="login">Login</a>
                   </li>
                 </ul>
               </div>
               <div class="header-btn d-inline-flex mx-2 loginBtn">
-                <a href="#" class="btn-default">Login</a>
+                <!-- <a href="#" class="btn-default mx-1">Login</a> -->
+                <div class="language-select">
+                  <div class="flag-container">
+                    <img
+                      id="selectedFlag"
+                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg fill='none'%3E%3Cpath fill='%23F0F0F0' d='M48 24c0-2.796-.486-5.48-1.377-8H1.378A23.929 23.929 0 0 0 0 24c0 2.796.486 5.48 1.377 8h45.245A23.93 23.93 0 0 0 48 24Z'/%3E%3Cpath fill='%23D80027' d='M24 48c10.252 0 18.954-6.43 22.623-16H1.377C5.047 41.57 13.748 48 24 48ZM24 0C13.748 0 5.047 6.43 1.377 16h45.245C42.954 6.43 34.252 0 24 0Z'/%3E%3Cpath fill='%230063A3' d='m19.262 19.304 2.446 7.532h7.922l-6.41 4.657 2.446 7.532-6.41-4.657-6.41 4.657 2.447-7.532-6.411-4.657h7.922z'/%3E%3C/g%3E%3C/svg%3E"
+                      alt="Flag"
+                      class="flag"
+                      width="20"
+                    />
+                  </div>
+                  <select id="languageSelector" class="form-select">
+                    <option
+                      value="en"
+                      data-flag="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg fill='none'%3E%3Cpath fill='%23F0F0F0' d='M48 24c0-2.796-.486-5.48-1.377-8H1.378A23.929 23.929 0 0 0 0 24c0 2.796.486 5.48 1.377 8h45.245A23.93 23.93 0 0 0 48 24Z'/%3E%3Cpath fill='%23D80027' d='M24 48c10.252 0 18.954-6.43 22.623-16H1.377C5.047 41.57 13.748 48 24 48ZM24 0C13.748 0 5.047 6.43 1.377 16h45.245C42.954 6.43 34.252 0 24 0Z'/%3E%3Cpath fill='%230063A3' d='m19.262 19.304 2.446 7.532h7.922l-6.41 4.657 2.446 7.532-6.41-4.657-6.41 4.657 2.447-7.532-6.411-4.657h7.922z'/%3E%3C/g%3E%3C/svg%3E"
+                      selected
+                    >
+                      English
+                    </option>
+                    <option
+                      value="ar"
+                      data-flag="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23FFFFFF' d='M0 0h48v48H0z'/%3E%3Cpath fill='%23006946' d='M0 0h48v48H0z'/%3E%3Cpath fill='%23FFCF00' d='M24 6c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10S29.523 6 24 6zm0 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z'/%3E%3C/svg%3E"
+                    >
+                      العربية
+                    </option>
+                  </select>
+                </div>
               </div>
             </div>
             <!-- Main Menu End -->
@@ -184,11 +280,19 @@
             <!-- Hero Content Start -->
             <div class="hero-content">
               <div class="section-title">
-                <h3 class="wow fadeInUp">welcome to GHTE</h3>
-                <h1 class="text-anime-style-3" data-cursor="-opaque">
+                <h3 class="wow fadeInUp" data-key="welcome">welcome to GHTE</h3>
+                <h1
+                  class="text-anime-style-3"
+                  data-cursor="-opaque"
+                  data-key="welcome_heading"
+                >
                   Building dreams with precision and excellence
                 </h1>
-                <p class="wow fadeInUp" data-wow-delay="0.25s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.25s"
+                  data-key="welcome_description"
+                >
                   we specialize in turning visions into reality with exceptional
                   craftsmanship and meticulous attention to detail. With years
                   of experience and a commitment to quality.
@@ -196,8 +300,13 @@
               </div>
 
               <div class="hero-content-body wow fadeInUp" data-wow-delay="0.5s">
-                <a href="contact.html" class="btn-default">get started</a>
-                <a href="project.html" class="btn-default btn-highlighted"
+                <a href="contact.html" class="btn-default" data-key="btn"
+                  >get started</a
+                >
+                <a
+                  href="project.html"
+                  class="btn-default btn-highlighted"
+                  data-key="project_btn"
                   >view Projects</a
                 >
               </div>
@@ -230,15 +339,20 @@
             <div class="about-content">
               <!-- Section Title Start -->
               <div class="section-title">
-                <h3 class="wow fadeInUp">about us</h3>
+                <h3 class="wow fadeInUp" data-key="about">about us</h3>
                 <h2
                   class="text-anime-style-3 fadeInUp"
                   data-cursor="-opaque"
                   data-wow-delay="0.5s"
+                  data-key="about_heading"
                 >
                   Gulf Horizon Telecom Est.
                 </h2>
-                <p class="wow fadeInUp" data-wow-delay="0.25s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.25s"
+                  data-key="about_description"
+                >
                   Gulf Horizon Telecom Est (GHTE) Management and Staff Team is
                   grateful to have the honor of introducing ourselves to your
                   esteemed organization Having a prominent position in the
@@ -257,10 +371,18 @@
                 data-wow-delay="0.5s"
               >
                 <ul>
-                  <li>We respect diverse opinions and ideas from everyone.</li>
-                  <li>Ownership drives success, valuing and results.</li>
-                  <li>Fairness is our way; our word is bond.</li>
-                  <li>Quality builds our legacy through lasting commitment</li>
+                  <li data-key="about_point1">
+                    We respect diverse opinions and ideas from everyone.
+                  </li>
+                  <li data-key="about_point2">
+                    Ownership drives success, valuing and results.
+                  </li>
+                  <li data-key="about_point3">
+                    Fairness is our way; our word is bond.
+                  </li>
+                  <li data-key="about_point4">
+                    Quality builds our legacy through lasting commitment
+                  </li>
                 </ul>
               </div>
               <!-- About Content Body End -->
@@ -275,6 +397,7 @@
                     href="./profile/companprofile.pdf"
                     target="_blank"
                     class="btn-default"
+                    data-key="company_profile"
                     >Company Profile</a
                   >
                 </div>
@@ -283,8 +406,8 @@
                     <img src="images/icon-phone.svg" alt="" />
                   </div>
                   <div class="about-support-content">
-                    <p>call support center 24X7</p>
-                    <h3>+966 122 873 071</h3>
+                    <p data-key="callorsupport">call support center 24X7</p>
+                    <h3 data-key="company_phone">+966 122 873 071</h3>
                   </div>
                 </div>
               </div>
@@ -303,11 +426,21 @@
           <div class="row section-row">
             <div class="col-lg-12">
               <div class="section-title">
-                <h3 class="wow fadeInUp">Lets make this solutions</h3>
-                <h2 class="text-anime-style-3" data-cursor="-opaque">
+                <h3 class="wow fadeInUp" data-key="service">
+                  Lets make this solutions
+                </h3>
+                <h2
+                  class="text-anime-style-3"
+                  data-cursor="-opaque"
+                  data-key="service_heading"
+                >
                   What Solutions Do We offer
                 </h2>
-                <p class="wow fadeInUp" data-wow-delay="0.25s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.25s"
+                  data-key="service_description"
+                >
                   We provide one stop specialized services in Power, Security &
                   IT products. Our solutions are designed to safeguard your
                   systems and data against potential threats, ensuring optimal
@@ -326,12 +459,21 @@
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-power">Power</li>
-                <li data-filter=".filter-Security">Security</li>
-                <li data-filter=".filter-it">IT</li>
+                <li
+                  data-filter="*"
+                  class="filter-active"
+                  data-key="service_all"
+                >
+                  All
+                </li>
+                <li data-filter=".filter-power" data-key="power_service">
+                  Power
+                </li>
+                <li data-filter=".filter-Security" data-key="security_service">
+                  Security
+                </li>
+                <li data-filter=".filter-it" data-key="it_service">IT</li>
               </ul>
-
               <div
                 class="row gy-4 isotope-container"
                 data-aos="fade-up"
@@ -348,15 +490,22 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Uninterruptible Power Supply</h3>
+                        <h3 data-key="ups_card_heading">
+                          Uninterruptible Power Supply
+                        </h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="ups_card_description">
                           Our UPS ensures continuous power, offering peace of
                           mind against unexpected outages and disruptions.
                         </p>
                         <div class="service-content-footer">
-                          <a href="ups.html" class="readmore-btn">view more</a>
+                          <a
+                            href="ups.html"
+                            class="readmore-btn"
+                            data-key="view_more"
+                            >view more</a
+                          >
                         </div>
                       </div>
                     </div>
@@ -373,15 +522,18 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Load Bank</h3>
+                        <h3 data-key="loadbank_card_heading">Load Bank</h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="loadbank_card_description">
                           Our load banks ensure reliable power for all your
                           needs.
                         </p>
                         <div class="service-content-footer">
-                          <a href="loadbank.html" class="readmore-btn"
+                          <a
+                            href="loadbank.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -400,15 +552,18 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Batteries</h3>
+                        <h3 data-key="batteries_card_heading">Batteries</h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="batteries_card_description">
                           Our batteries ensure reliable power for all your
                           needs.
                         </p>
                         <div class="service-content-footer">
-                          <a href="batteries.html" class="readmore-btn"
+                          <a
+                            href="batteries.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -427,15 +582,22 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Automatic Voltage Regulator</h3>
+                        <h3 data-key="avr_card_heading">
+                          Automatic Voltage Regulator
+                        </h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="avr_card_description">
                           Our AVRs and voltage stabilizers ensure stable power,
                           protecting your equipment from voltage fluctuations.
                         </p>
                         <div class="service-content-footer">
-                          <a href="avrs.html" class="readmore-btn">view more</a>
+                          <a
+                            href="avrs.html"
+                            class="readmore-btn"
+                            data-key="view_more"
+                            >view more</a
+                          >
                         </div>
                       </div>
                     </div>
@@ -452,15 +614,18 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Generators</h3>
+                        <h3 data-key="generators_card_heading">Generators</h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="generators_card_description">
                           Our generators provide reliable backup power, ensuring
                           your operations stay uninterrupted.
                         </p>
                         <div class="service-content-footer">
-                          <a href="genrators.html" class="readmore-btn"
+                          <a
+                            href="genrators.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -479,15 +644,20 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>CCTV</h3>
+                        <h3 data-key="cctv_card_heading">CCTV</h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="cctv_card_description">
                           Quality is our legacy; trust in reliable, long-lasting
                           CCTV systems.
                         </p>
                         <div class="service-content-footer">
-                          <a href="cctv.html" class="readmore-btn">view more</a>
+                          <a
+                            href="cctv.html"
+                            class="readmore-btn"
+                            data-key="view_more"
+                            >view more</a
+                          >
                         </div>
                       </div>
                     </div>
@@ -504,15 +674,20 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Access Control</h3>
+                        <h3 data-key="access_control_card_heading">
+                          Access Control
+                        </h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="access_control_card_description">
                           Excellence is our legacy; trust in secure, reliable
                           access control systems.
                         </p>
                         <div class="service-content-footer">
-                          <a href="accesscontrol.html" class="readmore-btn"
+                          <a
+                            href="accesscontrol.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -531,15 +706,20 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Fire Extinguishing Systems</h3>
+                        <h3 data-key="fire_extinguishing_card_heading">
+                          Fire Extinguishing Systems
+                        </h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="fire_extinguishing_card_description">
                           Mastery reflects our legacy; trust in reliable fire
                           extinguishing systems.
                         </p>
                         <div class="service-content-footer">
-                          <a href="fire-fighting.html" class="readmore-btn"
+                          <a
+                            href="fire-fighting.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -558,15 +738,20 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Sound System</h3>
+                        <h3 data-key="sound_system_card_heading">
+                          Sound System
+                        </h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="sound_system_card_description">
                           Immersive audio defines our legacy; trust in
                           precision-engineered sound solutions.
                         </p>
                         <div class="service-content-footer">
-                          <a href="sound-system.html" class="readmore-btn"
+                          <a
+                            href="sound-system.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -574,30 +759,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="col-lg-3 col-md-6 portfolio-item filter-it">
-                                <div class="service-item wow fadeInUp" data-wow-delay="0.25s">
-                                    <div class="service-image" data-cursor-text="View">
-                                        <a href="datacenter.html">
-                                            <figure>
-                                                <img src="images/datacenter.png" alt="">
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="service-body">
-                                        <div class="service-body-title">
-                                            <h3>Data Center</h3>
-                                        </div>
-                                        <div class="service-content">
-                                            <p>With commitment at our core, count on us for accurate data center uptime
-                                                testing.
-                                            </p>
-                                            <div class="service-content-footer">
-                                                <a href="datacenter.html" class="readmore-btn">view more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                 <div class="col-lg-3 col-md-6 portfolio-item filter-it">
                   <div class="service-item wow fadeInUp" data-wow-delay="0.25s">
                     <div class="service-image" data-cursor-text="View">
@@ -609,15 +770,20 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Servers / Computers</h3>
+                        <h3 data-key="servers_computers_card_heading">
+                          Servers / Computers
+                        </h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="servers_computers_card_description">
                           Dedication builds our legacy; count on us for reliable
                           server and computer solutions.
                         </p>
                         <div class="service-content-footer">
-                          <a href="servercomputer.html" class="readmore-btn"
+                          <a
+                            href="servercomputer.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -636,15 +802,18 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Racks</h3>
+                        <h3 data-key="racks_card_heading">Racks</h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="racks_card_description">
                           Stability and organization shape our legacy; trust in
                           durable and efficient rack solutions.
                         </p>
                         <div class="service-content-footer">
-                          <a href="racks.html" class="readmore-btn"
+                          <a
+                            href="racks.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -663,15 +832,20 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Cyber Security</h3>
+                        <h3 data-key="cyber_security_card_heading">
+                          Cyber Security
+                        </h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="cyber_security_card_description">
                           Commitment shapes our legacy; trust in reliable
                           cybersecurity measures.
                         </p>
                         <div class="service-content-footer">
-                          <a href="cybersecurity.html" class="readmore-btn"
+                          <a
+                            href="cybersecurity.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -679,31 +853,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="col-lg-3 col-md-6 portfolio-item filter-it">
-                                <div class="service-item wow fadeInUp" data-wow-delay="0.25s">
-                                    <div class="service-image" data-cursor-text="View">
-                                        <a href="softwares.html">
-                                            <figure>
-                                                <img src="images/software.png" alt="">
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="service-body">
-                                        <div class="service-body-title">
-                                            <h3>Softwares</h3>
-                                        </div>
-                                        <div class="service-content">
-                                            <p>
-                                                Precision forms our legacy; trust us for high-quality software
-                                                solutions.
-                                            </p>
-                                            <div class="service-content-footer">
-                                                <a href="softwares.html" class="readmore-btn">view more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                 <div class="col-lg-3 col-md-6 portfolio-item filter-it">
                   <div class="service-item wow fadeInUp" data-wow-delay="0.25s">
                     <div class="service-image" data-cursor-text="View">
@@ -715,15 +864,20 @@
                     </div>
                     <div class="service-body">
                       <div class="service-body-title">
-                        <h3>Networking / Switches</h3>
+                        <h3 data-key="networking_switches_card_heading">
+                          Networking / Switches
+                        </h3>
                       </div>
                       <div class="service-content">
-                        <p>
+                        <p data-key="networking_switches_card_description">
                           Commitment shapes our legacy; rely on us for
                           high-performance switches.
                         </p>
                         <div class="service-content-footer">
-                          <a href="networking.html" class="readmore-btn"
+                          <a
+                            href="networking.html"
+                            class="readmore-btn"
+                            data-key="view_more"
                             >view more</a
                           >
                         </div>
@@ -746,11 +900,19 @@
           <div class="col-lg-12">
             <!-- Section Title Start -->
             <div class="section-title">
-              <h3 class="wow fadeInUp">why choose us?</h3>
-              <h2 class="text-anime-style-3" data-cursor="-opaque">
+              <h3 class="wow fadeInUp" data-key="choose">why choose us?</h3>
+              <h2
+                class="text-anime-style-3"
+                data-cursor="-opaque"
+                data-key="choose_heading"
+              >
                 Why we're your best choice
               </h2>
-              <p class="wow fadeInUp" data-wow-delay="0.25s">
+              <p
+                class="wow fadeInUp"
+                data-wow-delay="0.25s"
+                data-key="choose_description"
+              >
                 Core Values are what support the vision, shape the culture and
                 reflect what an organization values. They are the essence of the
                 organization’s identity – the principles, beliefs or philosophy
@@ -769,8 +931,10 @@
                 <img src="images/icon-why-choose-1.svg" alt="" />
               </div>
               <div class="why-choose-content">
-                <h3>innovation solutions</h3>
-                <p>
+                <h3 data-key="innovation_solutions_card_heading">
+                  innovation solutions
+                </h3>
+                <p data-key="innovation_solutions_card_description">
                   We blend creativity and technology to tackle your toughest
                   challenges. Our forward-thinking approach and cutting-edge
                   tools ensure solutions that exceed expectations and drive
@@ -779,7 +943,9 @@
               </div>
               <div class="why-choose-counter">
                 <h3><span class="counter">1000</span>+</h3>
-                <p>Projects Delivered</p>
+                <p data-key="projects_delivered_card_heading">
+                  Projects Delivered
+                </p>
               </div>
             </div>
             <!-- Why Choose Item End -->
@@ -802,8 +968,10 @@
                 <img src="images/icon-why-choose-2.svg" alt="" />
               </div>
               <div class="why-choose-content">
-                <h3>Quality craftsmanship</h3>
-                <p>
+                <h3 data-key="quality_craftsmanship_card_heading">
+                  Quality craftsmanship
+                </h3>
+                <p data-key="quality_craftsmanship_card_description">
                   We pride ourselves on meticulous attention to detail and
                   superior craftsmanship. Our commitment to excellence ensures
                   every project is completed with precision, delivering results
@@ -812,7 +980,7 @@
               </div>
               <div class="why-choose-counter">
                 <h3><span class="counter">400</span>+</h3>
-                <p>List of long Clients</p>
+                <p data-key="long_clients_card_heading">List of long Clients</p>
               </div>
             </div>
             <!-- Why Choose Item End -->
@@ -835,8 +1003,10 @@
                 <img src="images/icon-why-choose-3.svg" alt="" />
               </div>
               <div class="why-choose-content">
-                <h3>Expertise and Experience</h3>
-                <p>
+                <h3 data-key="expertise_experience_card_heading">
+                  Expertise and Experience
+                </h3>
+                <p data-key="expertise_experience_card_description">
                   With years of industry experience and deep expertise, we bring
                   a wealth of knowledge to every project. Our skilled team
                   delivers exceptional results, leveraging proven methods to
@@ -845,7 +1015,9 @@
               </div>
               <div class="why-choose-counter">
                 <h3><span class="counter">17</span>+</h3>
-                <p>Year of foundation</p>
+                <p data-key="year_of_foundation_card_heading">
+                  Year of foundation
+                </p>
               </div>
             </div>
             <!-- Why Choose Item End -->
@@ -873,11 +1045,19 @@
             <div class="col-lg-12">
               <!-- Section Title Start -->
               <div class="section-title">
-                <h3 class="wow fadeInUp">Our projects</h3>
-                <h2 class="text-anime-style-3" data-cursor="-opaque">
+                <h3 class="wow fadeInUp" data-key="project">Our projects</h3>
+                <h2
+                  class="text-anime-style-3"
+                  data-cursor="-opaque"
+                  data-key="project_heading"
+                >
                   OUR SELECTED PROJECTS
                 </h2>
-                <p class="wow fadeInUp" data-wow-delay="0.25s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.25s"
+                  data-key="Project_description"
+                >
                   Our projects cover a wide range of services, including testing
                   and commissioning of critical systems at locations like STC
                   Headquarters and SAFRAN Jeddah Airport, along with engineering
@@ -908,19 +1088,24 @@
                 <div class="project-body">
                   <!-- Project Body Title Start -->
                   <div class="project-body-title">
-                    <h3>STC HeadQuarters</h3>
+                    <h3 data-key="stc_headquarters_card_heading">
+                      STC HeadQuarters
+                    </h3>
                   </div>
                   <!-- Project Body Title End -->
 
                   <!-- Project Content Start -->
                   <div class="project-content">
-                    <p>
+                    <p data-key="stc_headquarters_card_description">
                       In Collabration with UPTIME GHTE was leading the data
                       center testing with its expert engineers and load banks to
                       test the data center at its maximum capabilities.
                     </p>
                     <div class="project-content-footer">
-                      <a href="STCHeadQuarter.html" class="readmore-btn"
+                      <a
+                        href="STCHeadQuarter.html"
+                        class="readmore-btn"
+                        data-key="view_more"
                         >view more</a
                       >
                     </div>
@@ -948,19 +1133,22 @@
                 <div class="project-body">
                   <!-- Project Body Title Start -->
                   <div class="project-body-title">
-                    <h3>Riyadh Metro</h3>
+                    <h3 data-key="riyadh_metro_card_heading">Riyadh Metro</h3>
                   </div>
                   <!-- Project Body Title End -->
 
                   <!-- Project Content Start -->
                   <div class="project-content">
-                    <p>
+                    <p data-key="riyadh_metro_card_description">
                       Riyadh Metro UPS Testing checks if the backup power
                       systems can handle power failures. This ensures the metro
                       runs smoothly during outages.
                     </p>
                     <div class="project-content-footer">
-                      <a href="Riyadh-metro.html" class="readmore-btn"
+                      <a
+                        href="Riyadh-metro.html"
+                        class="readmore-btn"
+                        data-key="view_more"
                         >view more</a
                       >
                     </div>
@@ -988,13 +1176,15 @@
                 <div class="project-body">
                   <!-- Project Body Title Start -->
                   <div class="project-body-title">
-                    <h3>National CyberCrime Agency</h3>
+                    <h3 data-key="national_cybercrime_agency_card_heading">
+                      National CyberCrime Agency
+                    </h3>
                   </div>
                   <!-- Project Body Title End -->
 
                   <!-- Project Content Start -->
                   <div class="project-content">
-                    <p>
+                    <p data-key="national_cybercrime_agency_card_description">
                       National CyberCrime Agency Data Center Load Testing
                       ensures the data center can handle different power and
                       data loads efficiently. This testing helps identify and
@@ -1002,7 +1192,10 @@
                       during high-demand periods.
                     </p>
                     <div class="project-content-footer">
-                      <a href="Cybercrime.html" class="readmore-btn"
+                      <a
+                        href="Cybercrime.html"
+                        class="readmore-btn"
+                        data-key="view_more"
                         >view more</a
                       >
                     </div>
@@ -1030,13 +1223,15 @@
                 <div class="project-body">
                   <!-- Project Body Title Start -->
                   <div class="project-body-title">
-                    <h3>⁠Batterjee Medical College</h3>
+                    <h3 data-key="batterjee_medical_college_card_heading">
+                      ⁠Batterjee Medical College
+                    </h3>
                   </div>
                   <!-- Project Body Title End -->
 
                   <!-- Project Content Start -->
                   <div class="project-content">
-                    <p>
+                    <p data-key="batterjee_medical_college_card_description">
                       Batterjee Medical College in Jeddah performs load testing
                       to ensure its data center and power systems can handle
                       varying loads. This process helps maintain smooth
@@ -1047,6 +1242,7 @@
                       <a
                         href="BatterjeeMedicalCollege.html"
                         class="readmore-btn"
+                        data-key="view_more"
                         >view more</a
                       >
                     </div>
@@ -1059,7 +1255,9 @@
             </div>
             <!-- Services Footer Btn Start -->
             <div class="project-footer-btn wow fadeInUp" data-wow-delay="1.25s">
-              <a href="project.html" class="btn-default">view all projects</a>
+              <a href="project.html" class="btn-default" data-key="project_btn"
+                >view all projects</a
+              >
             </div>
             <!-- Services Footer Btn End -->
           </div>
@@ -1075,10 +1273,14 @@
           <div class="col-lg-7 col-md-8">
             <!-- Section Title Start -->
             <div class="section-title">
-              <h2 class="text-anime-style-3" data-cursor="-opaque">
+              <h2
+                class="text-anime-style-3"
+                data-cursor="-opaque"
+                data-key="cta_heading"
+              >
                 Let's work on something great together!
               </h2>
-              <p class="wow fadeInUp">
+              <p class="wow fadeInUp" data-key="cta_description">
                 Don't wait any longer to bring your engineering visions to life.
                 Partner with us and experience unmatched service and quality.
               </p>
@@ -1086,7 +1288,12 @@
             <!-- Section Title End -->
             <!-- Section Btn Start -->
             <div class="section-btn wow fadeInUp" data-wow-delay="0.25s">
-              <a href="#" class="btn-default btn-large">get free quote</a>
+              <a
+                href="contact.html"
+                class="btn-default btn-large"
+                data-key="cta_btn"
+                >get free quote</a
+              >
             </div>
             <!-- Section Btn End -->
           </div>
@@ -1118,10 +1325,18 @@
                 <div class="col-lg-12">
                   <!-- Section Title Start -->
                   <div class="section-title">
-                    <h2 class="text-anime-style-3" data-cursor="-opaque">
+                    <h2
+                      class="text-anime-style-3"
+                      data-cursor="-opaque"
+                      data-key="partner_heading"
+                    >
                       PRINCIPAL PARTNERS
                     </h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.25s">
+                    <p
+                      class="wow fadeInUp"
+                      data-wow-delay="0.25s"
+                      data-key="partner_description"
+                    >
                       At GHTE, we collaborate with industry-leading partners to
                       deliver cutting-edge technologies and innovative
                       solutions. Our partnerships with renowned global brands
@@ -1330,7 +1545,7 @@
                   <img src="images/icon-phone.svg" alt="" />
                 </div>
                 <div class="contact-info-content">
-                  <p>call support center 24/7</p>
+                  <p data-key="callorsupport">call support center 24/7</p>
                   <h3>+966 122 873 071</h3>
                 </div>
               </div>
@@ -1342,7 +1557,7 @@
                   <img src="images/icon-mail.svg" alt="" />
                 </div>
                 <div class="contact-info-content">
-                  <p>write to us</p>
+                  <p data-key="email_text">write to us</p>
                   <h3>Info@gulfhorizontele.com</h3>
                 </div>
               </div>
@@ -1364,8 +1579,12 @@
             <div class="contact-form wow fadeInUp" data-wow-delay="0.25s">
               <!-- Section Title Start -->
               <div class="section-title">
-                <h3 class="wow fadeInUp">contact us</h3>
-                <h2 class="text-anime-style-3" data-cursor="-opaque">
+                <h3 class="wow fadeInUp" data-key="contact">contact us</h3>
+                <h2
+                  class="text-anime-style-3"
+                  data-cursor="-opaque"
+                  data-key="contact_description"
+                >
                   Get in touch with us
                 </h2>
               </div>
@@ -1439,7 +1658,9 @@
                   </div>
 
                   <div class="col-md-12">
-                    <button type="submit" class="btn-default">submit</button>
+                    <button type="submit" class="btn-default" ="">
+                      submit
+                    </button>
                     <div id="msgSubmit" class="h3 hidden"></div>
                   </div>
                 </div>
@@ -1470,7 +1691,7 @@
 
               <!-- Footer Content Start -->
               <div class="footer-content">
-                <p>
+                <p data-key="footer_description">
                   Having a prominent position in the Power Electronics market,
                   GHTE has partnered with world renown Leading manufacturers to
                   provide our valued customers with Quality Products and Systems
@@ -1486,13 +1707,31 @@
           <div class="col-lg-3 col-md-4 col-12">
             <!-- Footer Quick Links Start -->
             <div class="footer-links">
-              <h3>our services</h3>
+              <h3 data-key="services_heading">our services</h3>
               <ul>
-                <li><a href="loadbank.html">loadbank</a></li>
-                <li><a href="networking.html">Networking / Switches</a></li>
-                <li><a href="servercomputer.html">Servers / Computers</a></li>
-                <li><a href="accesscontrol.html">Access Control</a></li>
-                <li><a href="cybersecurity.html">Cyber Security</a></li>
+                <li>
+                  <a href="loadbank.html" data-key="load_bank">loadbank</a>
+                </li>
+                <li>
+                  <a href="networking.html" data-key="networking_switches"
+                    >Networking / Switches</a
+                  >
+                </li>
+                <li>
+                  <a href="servercomputer.html" data-key="servers_computers"
+                    >Servers / Computers</a
+                  >
+                </li>
+                <li>
+                  <a href="accesscontrol.html" data-key="access_control"
+                    >Access Control</a
+                  >
+                </li>
+                <li>
+                  <a href="cybersecurity.html" data-key="cyber_security"
+                    >Cyber Security</a
+                  >
+                </li>
               </ul>
             </div>
             <!-- Footer Quick Links End -->
@@ -1503,10 +1742,16 @@
             <div class="footer-links">
               <h3>company</h3>
               <ul>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="project.html">Projects</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-                <li><a href="#">Company Profile</a></li>
+                <li><a href="about.html" data-key="aboutmenu">About us</a></li>
+                <li><a href="project.html" data-key="projects">Projects</a></li>
+                <li>
+                  <a href="contact.html" data-key="contact_us">Contact us</a>
+                </li>
+                <li>
+                  <a href="profile/companprofile.pdf" data-key="company_profile"
+                    >Company Profile</a
+                  >
+                </li>
               </ul>
             </div>
             <!-- Footer Links End -->
@@ -1515,7 +1760,7 @@
           <div class="col-lg-3 col-md-4 col-12">
             <!-- Footer Contact Info Box Start -->
             <div class="footer-links footer-contact-box">
-              <h3>contact us</h3>
+              <h3 data-key="contact_us">contact us</h3>
               <!-- Info Box Start -->
               <div class="footer-info-box">
                 <!-- Icon Box Start -->
@@ -1545,7 +1790,7 @@
                   <img src="images/icon-location.svg" alt="" />
                 </div>
                 <!-- Icon Box End -->
-                <p>
+                <p data-key="footer_address">
                   Gulf Horizon Telecom Est Level 7, Al Murjanah Tower, Prince
                   Sultan St., Jeddah 21433
                 </p>
@@ -1601,7 +1846,7 @@
       </div>
     </footer>
     <!-- Footer End -->
-
+    <script src="translator.js"></script>
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap js file -->

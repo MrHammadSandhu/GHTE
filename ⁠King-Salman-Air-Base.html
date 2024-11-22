@@ -67,94 +67,158 @@
               <div class="nav-menu-wrapper">
                 <ul class="navbar-nav mr-auto" id="menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.html" data-key="home"
+                      >Home</a
+                    >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="about.html" data-key="aboutmenu"
+                      >About</a
+                    >
                   </li>
                   <li class="nav-item submenu">
-                    <a class="nav-link" href="#">Power</a>
+                    <a class="nav-link" href="#" data-key="power">Power</a>
                     <ul>
                       <li class="nav-item">
-                        <a class="nav-link" href="ups.html">UPS Systems</a>
+                        <a
+                          class="nav-link"
+                          href="ups.html"
+                          data-key="ups_system"
+                          >UPS Systems</a
+                        >
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="batteries.html">Batteries </a>
+                        <a
+                          class="nav-link"
+                          href="batteries.html"
+                          data-key="batteries"
+                          >Batteries
+                        </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="genrators.html"
+                        <a
+                          class="nav-link"
+                          href="genrators.html"
+                          data-key="generators"
                           >Generators
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="loadbank.html">Load Bank </a>
+                        <a
+                          class="nav-link"
+                          href="loadbank.html"
+                          data-key="load_bank"
+                          >Load Bank
+                        </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="avrs.html">AVRs </a>
+                        <a class="nav-link" href="avrs.html" data-key="avrs"
+                          >AVRs
+                        </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item submenu">
-                    <a class="nav-link" href="#">Security</a>
+                    <a class="nav-link" href="#" data-key="security"
+                      >Security</a
+                    >
                     <ul>
                       <li class="nav-item">
-                        <a class="nav-link" href="cctv.html">CCTV</a>
+                        <a class="nav-link" href="cctv.html" data-key="cctv"
+                          >CCTV</a
+                        >
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="accesscontrol.html"
+                        <a
+                          class="nav-link"
+                          href="accesscontrol.html"
+                          data-key="access_control"
                           >Access Control
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="fire-fighting.html"
+                        <a
+                          class="nav-link"
+                          href="fire-fighting.html"
+                          data-key="fire_fighting"
                           >Fire Fighting
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="cybersecurity.html"
+                        <a
+                          class="nav-link"
+                          href="cybersecurity.html"
+                          data-key="cyber_security"
                           >Cyber Security
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="sound-system.html"
+                        <a
+                          class="nav-link"
+                          href="sound-system.html"
+                          data-key="sound_system"
                           >Sound System
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item submenu">
-                    <a class="nav-link" href="#">IT</a>
+                    <a class="nav-link" href="#" data-key="it_service">IT</a>
                     <ul>
                       <!-- <li class="nav-item"><a class="nav-link" href="datacenter.html">Data
                                                 Center</a></li> -->
                       <li class="nav-item">
-                        <a class="nav-link" href="racks.html">Racks </a>
+                        <a class="nav-link" href="racks.html" data-key="racks"
+                          >Racks
+                        </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="networking.html"
+                        <a
+                          class="nav-link"
+                          href="networking.html"
+                          data-key="networking_switches"
                           >Networking / Switches
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="servercomputer.html"
+                        <a
+                          class="nav-link"
+                          href="servercomputer.html"
+                          data-key="servers_computers"
                           >Servers / Computers
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="project.html">Projects</a>
+                    <a class="nav-link" href="project.html" data-key="projects"
+                      >Projects</a
+                    >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact Us</a>
+                    <a
+                      class="nav-link"
+                      href="contact.html"
+                      data-key="contact_us"
+                      >Contact Us</a
+                    >
                   </li>
                   <li class="nav-item highlighted-menu">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="#" data-key="login">Login</a>
                   </li>
                 </ul>
               </div>
               <div class="header-btn d-inline-flex mx-2 loginBtn">
-                <a href="#" class="btn-default">Login</a>
+                <a href="#" class="btn-default mx-1">Login</a>
+                <!-- <select id="language-select" class="languageselector">
+                  <option value="en" selected>English</option>
+                  <option value="ar">Arabic</option>
+                </select> -->
+                <!-- Language Selector -->
+                <select id="languageSelector">
+                  <option value="en" selected>English</option>
+                  <option value="ar">العربية</option>
+                </select>
               </div>
             </div>
             <!-- Main Menu End -->
@@ -173,16 +237,26 @@
           <div class="col-lg-12">
             <!-- Page Header Box Start -->
             <div class="page-header-box">
-              <h1 class="text-anime-style-3" data-cursor="-opaque">
+              <h1
+                class="text-anime-style-3"
+                data-cursor="-opaque"
+                data-key="king_salman_air_base_card_heading"
+              >
                 king Salman Airbase
               </h1>
               <nav class="wow fadeInUp">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">home</a></li>
                   <li class="breadcrumb-item">
-                    <a href="project.html">projects</a>
+                    <a href="index.html" data-key="home">home</a>
                   </li>
-                  <li class="breadcrumb-item active" aria-current="page">
+                  <li class="breadcrumb-item">
+                    <a href="project.html" data-key="projects">projects</a>
+                  </li>
+                  <li
+                    class="breadcrumb-item active"
+                    aria-current="page"
+                    data-key="king_salman_air_base_card_heading"
+                  >
                     king Salman Airbase
                   </li>
                 </ol>
@@ -212,29 +286,46 @@
 
               <!-- Project Details Content Start -->
               <div class="project-details-content">
-                <p class="wow fadeInUp" data-wow-delay="0.25s">
-                  At Gulf Horizon Telecom Est., we take pride in delivering
-                  exceptional solutions across the power, security, and IT
-                  sectors. With over 22 years of experience and a track record
-                  of more than 500 successful projects, we have established
-                  ourselves as a trusted partner for businesses and
-                  organizations throughout Saudi Arabia. Our team of highly
-                  skilled engineers and professionals is dedicated to providing
-                  innovative, reliable, and cost-effective solutions tailored to
-                  meet the unique needs of our clients.
+                <div class="project-details-title wow fadeInUp mb-1">
+                  <h3 data-key="about_us_intro_heading">
+                    At Gulf Horizon Telecom Est.
+                  </h3>
+                </div>
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.25s"
+                  data-key="about_us_intro_description"
+                >
+                  we take pride in delivering exceptional solutions across the
+                  power, security, and IT sectors. With over 22 years of
+                  experience and a track record of more than 500 successful
+                  projects, we have established ourselves as a trusted partner
+                  for businesses and organizations throughout Saudi Arabia. Our
+                  team of highly skilled engineers and professionals is
+                  dedicated to providing innovative, reliable, and
+                  cost-effective solutions tailored to meet the unique needs of
+                  our clients.
                 </p>
 
                 <div class="project-details-title wow fadeInUp mb-1">
-                  <h3>Our Expertise</h3>
+                  <h3 data-key="our_expertise_heading">Our Expertise</h3>
                 </div>
-                <p class="wow fadeInUp" data-wow-delay="0.5s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.5s"
+                  data-key="our_expertise_description"
+                >
                   We specialize in delivering end-to-end services that cover the
                   following key areas
                 </p>
                 <div class="project-details-title wow fadeInUp mb-1">
-                  <h3>Power Solutions</h3>
+                  <h3 data-key="power_solutions_heading">Power Solutions</h3>
                 </div>
-                <p class="wow fadeInUp" data-wow-delay="0.5s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.5s"
+                  data-key="power_solutions_description"
+                >
                   We design, install, and maintain high-quality power systems
                   that ensure reliable energy delivery across a variety of
                   industries. From backup power systems and electrical
@@ -242,20 +333,36 @@
                   the experience and technical know-how to meet the most complex
                   power demands.
                 </p>
-                <div class="project-details-title wow fadeInUp mb-1">
-                  <h3>Security Systems</h3>
+                <div
+                  class="project-details-title wow fadeInUp mb-1"
+                  data-key=""
+                >
+                  <h3 data-key="security_systems_heading">Security Systems</h3>
                 </div>
-                <p class="wow fadeInUp" data-wow-delay="0.5s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.5s"
+                  data-key="security_systems_description"
+                >
                   We provide comprehensive security solutions, including
                   surveillance systems, access control, intrusion detection, and
                   fire safety systems. Our cutting-edge technology ensures the
                   highest level of protection, whether for commercial,
                   industrial, or residential clients.
                 </p>
-                <div class="project-details-title wow fadeInUp mb-1">
-                  <h3>IT Infrastructure & Solutions</h3>
+                <div
+                  class="project-details-title wow fadeInUp mb-1"
+                  data-key=""
+                >
+                  <h3 data-key="it_infrastructure_heading">
+                    IT Infrastructure & Solutions
+                  </h3>
                 </div>
-                <p class="wow fadeInUp" data-wow-delay="0.5s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.5s"
+                  data-key="it_infrastructure_description"
+                >
                   Our IT services include the design and implementation of IT
                   networks, data centers, cybersecurity, and cloud solutions. We
                   ensure seamless integration of advanced technology to improve
@@ -263,17 +370,30 @@
                   sizes.
                 </p>
                 <div class="project-details-title wow fadeInUp mb-1">
-                  <h3>Featured Projects</h3>
+                  <h3 data-key="featured_projects_heading">
+                    Featured Projects
+                  </h3>
                 </div>
-                <p class="wow fadeInUp" data-wow-delay="0.5s">
+                <p
+                  class="wow fadeInUp"
+                  data-wow-delay="0.5s"
+                  data-key="featured_projects_description"
+                >
                   Over the years, we’ve had the privilege of working with a wide
                   range of clients from various sectors, including government,
                   healthcare, education, finance, and construction.
                 </p>
-                <div class="project-details-title wow fadeInUp mb-1">
-                  <h3>Our Approach</h3>
+                <div
+                  class="project-details-title wow fadeInUp mb-1"
+                  data-key=""
+                >
+                  <h3 data-key="our_approach_heading">Our Approach</h3>
                 </div>
-                <p class="wow fadeInUp mt-0" data-wow-delay="0.5s">
+                <p
+                  class="wow fadeInUp mt-0"
+                  data-wow-delay="0.5s"
+                  data-key="our_approach_description"
+                >
                   We believe that successful projects are built on collaboration
                   and a commitment to excellence. At Guf Horizon Teecom Est., we
                   work closely with our clients to understand their specific
@@ -282,27 +402,46 @@
                   within budget, and to the highest standards of quality.
                 </p>
                 <div class="project-details-title wow fadeInUp">
-                  <h3>Key Features of Our Projects</h3>
+                  <h3 data-key="key_features_heading">
+                    Key Features of Our Projects
+                  </h3>
                 </div>
                 <ul class="wow fadeInUp" data-wow-delay="0.5s">
-                  <li class="mt-0 mb-0">Tailored Solutions</li>
-                  <p class="mt-0 mb-0">
+                  <li class="mt-0 mb-0" data-key="tailored_solutions_heading">
+                    Tailored Solutions
+                  </li>
+                  <p
+                    class="mt-0 mb-0"
+                    data-key="tailored_solutions_description"
+                  >
                     We customize our approach to meet the unique needs of each
                     client, ensuring that our solutions are both practical and
                     scalable.
                   </p>
-                  <li class="mt-0 mb-0">Innovation</li>
-                  <p class="mt-0 mb-0">
+                  <li class="mt-0 mb-0" data-key="innovation_heading">
+                    Innovation
+                  </li>
+                  <p class="mt-0 mb-0" data-key="innovation_description">
                     We stay ahead of the curve by adopting the latest
                     technologies and industry best practices.
                   </p>
-                  <li class="mt-0 mb-0">Reliability</li>
-                  <p class="mt-0 mb-0">
+                  <li class="mt-0 mb-0" data-key="reliability_heading">
+                    Reliability
+                  </li>
+                  <p class="mt-0 mb-0" data-key="reliability_description">
                     Our systems are designed for longevity, with a focus on
                     durability and minimizing downtime.
                   </p>
-                  <li class="mt-0 mb-0">Expert Engineering Team</li>
-                  <p class="mt-0 mb-0">
+                  <li
+                    class="mt-0 mb-0"
+                    data-key="expert_engineering_team_heading"
+                  >
+                    Expert Engineering Team
+                  </li>
+                  <p
+                    class="mt-0 mb-0"
+                    data-key="expert_engineering_team_description"
+                  >
                     Our dedicated engineers bring years of expertise to every
                     project, ensuring that all technical aspects are executed
                     with precision.
@@ -324,8 +463,8 @@
                     <img src="images/icon-project-info-1.svg" alt="" />
                   </div>
                   <div class="project-info-content">
-                    <p>location</p>
-                    <h3>Riyadh, Saudi Arabia</h3>
+                    <p data-key="location">location</p>
+                    <h3 data-key="">Riyadh, Saudi Arabia</h3>
                   </div>
                 </div>
                 <!-- Portfolio Info Item End -->
@@ -336,8 +475,8 @@
                     <img src="images/icon-project-info-2.svg" alt="" />
                   </div>
                   <div class="project-info-content">
-                    <p>Client</p>
-                    <h3>RSAF / King Salman Airbase</h3>
+                    <p data-key="client">Client</p>
+                    <h3 data-key="">RSAF / King Salman Airbase</h3>
                   </div>
                 </div>
                 <!-- Portfolio Info Item End -->
@@ -348,8 +487,8 @@
                     <img src="images/icon-project-info-3.svg" alt="" />
                   </div>
                   <div class="project-info-content">
-                    <p>Contractor</p>
-                    <h3>Saudi Controls</h3>
+                    <p data-key="contractor">Contractor</p>
+                    <h3 data-key="">Saudi Controls</h3>
                   </div>
                 </div>
                 <!-- Portfolio Info Item End -->
@@ -360,8 +499,8 @@
                     <img src="images/icon-project-info-4.svg" alt="" />
                   </div>
                   <div class="project-info-content">
-                    <p>Scope of work</p>
-                    <h3>Supply of Outdoor UPS Systems</h3>
+                    <p data-key="scope_of_work">Scope of work</p>
+                    <h3 data-key="">Supply of Outdoor UPS Systems</h3>
                   </div>
                 </div>
                 <!-- Portfolio Info Item End -->
@@ -372,8 +511,8 @@
                     <img src="images/icon-project-info-5.svg" alt="" />
                   </div>
                   <div class="project-info-content">
-                    <p>Completion Date</p>
-                    <h3>February 2024</h3>
+                    <p data-key="completion_date">Completion Date</p>
+                    <h3 data-key="">February 2024</h3>
                   </div>
                 </div>
                 <!-- Portfolio Info Item End -->
@@ -393,17 +532,23 @@
           <div class="col-lg-12">
             <!-- Section Title Start -->
             <div class="section-title">
-              <h3 class="wow fadeInUp">why choose us?</h3>
-              <h2 class="text-anime-style-3" data-cursor="-opaque">
+              <h3 class="wow fadeInUp" data-key="choose">why choose us?</h3>
+              <h2
+                class="text-anime-style-3"
+                data-cursor="-opaque"
+                data-key="choose_heading"
+              >
                 Why we're your best choice
               </h2>
-              <p class="wow fadeInUp" data-wow-delay="0.25s">
-                We believe that successful projects are built on collaboration
-                and a commitment to excellence. At Guf Horizon Teecom Est., we
-                work closely with our clients to understand their specific
-                requirements, challenges, and goals. Our project management
-                methodology ensures that every project is delivered on time,
-                within budget, and to the highest standards of quality.
+              <p
+                class="wow fadeInUp"
+                data-wow-delay="0.25s"
+                data-key="choose_description"
+              >
+                Core Values are what support the vision, shape the culture and
+                reflect what an organization values. They are the essence of the
+                organization’s identity – the principles, beliefs or philosophy
+                of values:
               </p>
             </div>
             <!-- Section Title End -->
@@ -418,8 +563,10 @@
                 <img src="images/icon-why-choose-1.svg" alt="" />
               </div>
               <div class="why-choose-content">
-                <h3>Proven Track Record</h3>
-                <p>
+                <h3 data-key="proven_track_record_heading">
+                  Proven Track Record
+                </h3>
+                <p data-key="proven_track_record_description">
                   With 22 years of experience and over 500 satisfied clients, we
                   have the expertise and industry insight to handle even the
                   most challenging projects.
@@ -427,7 +574,9 @@
               </div>
               <div class="why-choose-counter">
                 <h3><span class="counter">1000</span>+</h3>
-                <p>Projects Delivered</p>
+                <p data-key="projects_delivered_card_heading">
+                  Projects Delivered
+                </p>
               </div>
             </div>
             <!-- Why Choose Item End -->
@@ -440,8 +589,10 @@
                 <img src="images/icon-why-choose-2.svg" alt="" />
               </div>
               <div class="why-choose-content">
-                <h3>Comprehensive Service Offering</h3>
-                <p>
+                <h3 data-key="comprehensive_service_offering_heading">
+                  Comprehensive Service Offering
+                </h3>
+                <p data-key="comprehensive_service_offering_description">
                   From design and implementation to maintenance and support, we
                   provide a full suite of services across power, security, and
                   IT
@@ -449,7 +600,7 @@
               </div>
               <div class="why-choose-counter">
                 <h3><span class="counter">400</span>+</h3>
-                <p>List of long Clients</p>
+                <p data-key="long_clients_card_heading">List of long Clients</p>
               </div>
             </div>
             <!-- Why Choose Item End -->
@@ -462,8 +613,8 @@
                 <img src="images/icon-why-choose-3.svg" alt="" />
               </div>
               <div class="why-choose-content">
-                <h3>Dedicated Support</h3>
-                <p>
+                <h3 data-key="dedicated_support_heading">Dedicated Support</h3>
+                <p data-key="dedicated_support_description">
                   Our commitment to customer satisfaction extends beyond project
                   completion. We offer ongoing support to ensure that your
                   systems continue to perform optimally
@@ -471,7 +622,9 @@
               </div>
               <div class="why-choose-counter">
                 <h3><span class="counter">17</span>+</h3>
-                <p>Year of foundation</p>
+                <p data-key="year_of_foundation_card_heading">
+                  Year of foundation
+                </p>
               </div>
             </div>
             <!-- Why Choose Item End -->
@@ -494,7 +647,7 @@
                   <img src="images/icon-phone.svg" alt="" />
                 </div>
                 <div class="contact-info-content">
-                  <p>call support center 24/7</p>
+                  <p data-key="callorsupport">call support center 24/7</p>
                   <h3>+966 122 873 071</h3>
                 </div>
               </div>
@@ -506,7 +659,7 @@
                   <img src="images/icon-mail.svg" alt="" />
                 </div>
                 <div class="contact-info-content">
-                  <p>write to us</p>
+                  <p data-key="email_text">write to us</p>
                   <h3>Info@gulfhorizontele.com</h3>
                 </div>
               </div>
@@ -528,8 +681,12 @@
             <div class="contact-form wow fadeInUp" data-wow-delay="0.25s">
               <!-- Section Title Start -->
               <div class="section-title">
-                <h3 class="wow fadeInUp">contact us</h3>
-                <h2 class="text-anime-style-3" data-cursor="-opaque">
+                <h3 class="wow fadeInUp" data-key="contact">contact us</h3>
+                <h2
+                  class="text-anime-style-3"
+                  data-cursor="-opaque"
+                  data-key="contact_description"
+                >
                   Get in touch with us
                 </h2>
               </div>
@@ -603,7 +760,9 @@
                   </div>
 
                   <div class="col-md-12">
-                    <button type="submit" class="btn-default">submit</button>
+                    <button type="submit" class="btn-default" ="">
+                      submit
+                    </button>
                     <div id="msgSubmit" class="h3 hidden"></div>
                   </div>
                 </div>
@@ -634,7 +793,7 @@
 
               <!-- Footer Content Start -->
               <div class="footer-content">
-                <p>
+                <p data-key="footer_description">
                   Having a prominent position in the Power Electronics market,
                   GHTE has partnered with world renown Leading manufacturers to
                   provide our valued customers with Quality Products and Systems
@@ -650,13 +809,31 @@
           <div class="col-lg-3 col-md-4 col-12">
             <!-- Footer Quick Links Start -->
             <div class="footer-links">
-              <h3>our services</h3>
+              <h3 data-key="services_heading">our services</h3>
               <ul>
-                <li><a href="loadbank.html">loadbank</a></li>
-                <li><a href="networking.html">Networking / Switches</a></li>
-                <li><a href="servercomputer.html">Servers / Computers</a></li>
-                <li><a href="accesscontrol.html">Access Control</a></li>
-                <li><a href="cybersecurity.html">Cyber Security</a></li>
+                <li>
+                  <a href="loadbank.html" data-key="load_bank">loadbank</a>
+                </li>
+                <li>
+                  <a href="networking.html" data-key="networking_switches"
+                    >Networking / Switches</a
+                  >
+                </li>
+                <li>
+                  <a href="servercomputer.html" data-key="servers_computers"
+                    >Servers / Computers</a
+                  >
+                </li>
+                <li>
+                  <a href="accesscontrol.html" data-key="access_control"
+                    >Access Control</a
+                  >
+                </li>
+                <li>
+                  <a href="cybersecurity.html" data-key="cyber_security"
+                    >Cyber Security</a
+                  >
+                </li>
               </ul>
             </div>
             <!-- Footer Quick Links End -->
@@ -667,10 +844,16 @@
             <div class="footer-links">
               <h3>company</h3>
               <ul>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="project.html">Projects</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-                <li><a href="#">Company Profile</a></li>
+                <li><a href="about.html" data-key="aboutmenu">About us</a></li>
+                <li><a href="project.html" data-key="projects">Projects</a></li>
+                <li>
+                  <a href="contact.html" data-key="contact_us">Contact us</a>
+                </li>
+                <li>
+                  <a href="profile/companprofile.pdf" data-key="company_profile"
+                    >Company Profile</a
+                  >
+                </li>
               </ul>
             </div>
             <!-- Footer Links End -->
@@ -679,7 +862,7 @@
           <div class="col-lg-3 col-md-4 col-12">
             <!-- Footer Contact Info Box Start -->
             <div class="footer-links footer-contact-box">
-              <h3>contact us</h3>
+              <h3 data-key="contact_us">contact us</h3>
               <!-- Info Box Start -->
               <div class="footer-info-box">
                 <!-- Icon Box Start -->
@@ -709,7 +892,7 @@
                   <img src="images/icon-location.svg" alt="" />
                 </div>
                 <!-- Icon Box End -->
-                <p>
+                <p data-key="footer_address">
                   Gulf Horizon Telecom Est Level 7, Al Murjanah Tower, Prince
                   Sultan St., Jeddah 21433
                 </p>
@@ -765,6 +948,7 @@
       </div>
     </footer>
     <!-- Footer End -->
+    <script src="translator.js"></script>
 
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
