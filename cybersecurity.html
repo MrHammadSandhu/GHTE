@@ -58,7 +58,6 @@
             <!-- Logo Start -->
             <a class="navbar-brand" href="index.html">
               <img src="images/logo (3).png" alt="Logo" />
-              <!-- <h1 class="text-white">GHTE</h1> -->
             </a>
             <!-- Logo End -->
             <div class="collapse navbar-collapse main-menu">
@@ -163,8 +162,6 @@
                   <li class="nav-item submenu">
                     <a class="nav-link" href="#" data-key="it_service">IT</a>
                     <ul>
-                      <!-- <li class="nav-item"><a class="nav-link" href="datacenter.html">Data
-                                                Center</a></li> -->
                       <li class="nav-item">
                         <a class="nav-link" href="racks.html" data-key="racks"
                           >Racks
@@ -206,18 +203,35 @@
                   </li>
                 </ul>
               </div>
-              <div class="header-btn d-inline-flex mx-2 loginBtn">
-                <a href="#" class="btn-default mx-1">Login</a>
-                <!-- <select id="language-select" class="languageselector">
-                  <option value="en" selected>English</option>
-                  <option value="ar">Arabic</option>
-                </select> -->
-                <!-- Language Selector -->
-                <select id="languageSelector">
-                  <option value="en" selected>English</option>
-                  <option value="ar">العربية</option>
-                </select>
+            </div>
+            <div class="language-selector">
+              <div class="selected-language" id="selectedLanguage">
+                <img
+                  id="selectedFlag"
+                  src="https://flagcdn.com/w40/gb.png"
+                  alt="English"
+                  class="flag"
+                />
+                <span id="selectedLangText">English</span>
               </div>
+              <ul class="dropdown" id="languageDropdown">
+                <li data-lang="ar" data-flag="https://flagcdn.com/w40/sa.png">
+                  <img
+                    src="https://flagcdn.com/w40/sa.png"
+                    alt="Arabic"
+                    class="flag"
+                  />
+                  <span>العربية</span>
+                </li>
+                <li data-lang="en" data-flag="https://flagcdn.com/w40/gb.png">
+                  <img
+                    src="https://flagcdn.com/w40/gb.png"
+                    alt="English"
+                    class="flag"
+                  />
+                  <span>English</span>
+                </li>
+              </ul>
             </div>
             <!-- Main Menu End -->
             <div class="navbar-toggle"></div>

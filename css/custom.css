@@ -3649,6 +3649,10 @@ select:focus {
 }
 
 @media only screen and (max-width: 767px) {
+  .navbar-brand img {
+    width: 130px;
+    height: auto;
+  }
   .main-menu ul li,
   .main-menu .loginBtn {
     display: none !important;
@@ -4278,6 +4282,7 @@ select:focus {
   padding: 200px 0;
 }
 
+/* slider  */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -4287,11 +4292,59 @@ select:focus {
     transform: translateX(calc(-250px * 7));
   }
 }
+
+.slider {
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 90%;
+}
+
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slider .slide-track {
+  animation: scroll 15s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.slider .slide {
+  height: 100px;
+  width: 350px;
+  margin: 0 1rem;
+}
+
+/* .language-select */
+
 .language-selector {
   position: relative;
   display: inline-block;
   cursor: pointer;
   margin: 0 10px;
+  min-width: 115px;
 }
 
 .selected-language {
@@ -4320,14 +4373,15 @@ select:focus {
   position: absolute;
   top: 100%;
   left: 0;
-  background: transparent;
+  background: var(--primary-color);
   border-radius: 5px;
   list-style: none;
   padding: 0;
   margin: 0;
   z-index: 1000;
-  min-width: 150px;
+  min-width: 115px;
   color: var(--white-color);
+  margin-top: 5px;
 }
 
 .language-selector .dropdown.visible {
@@ -4343,7 +4397,9 @@ select:focus {
 }
 
 .language-selector .dropdown li:hover {
-  background: #555;
+  background: var(--accent-color);
+  color: var(--white-color);
+  border-radius: 5px;
 }
 
 .language-selector .dropdown li .flag {
