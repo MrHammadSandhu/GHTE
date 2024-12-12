@@ -43,23 +43,23 @@ form.addEventListener("submit", async (e) => {
 
   try {
     // Send data to backend
-    const response = await fetch(
-      "https://ghtebackend.vercel.app/api/send-email",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, phone, subject, message }),
-      }
-    );
-    // const response = await fetch("http://localhost:8080/api/send-email", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ name, email, phone, subject, message }),
-    // });
+    // const response = await fetch(
+    //   "https://ghtebackend.vercel.app/api/send-email",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ name, email, phone, subject, message }),
+    //   }
+    // );
+    const response = await fetch("http://localhost:8080/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, phone, subject, message }),
+    });
 
     const data = await response.json();
 
