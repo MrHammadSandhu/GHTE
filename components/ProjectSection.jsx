@@ -161,19 +161,6 @@ const ProjectCard = memo(({ project, index }) => {
           </div>
         </Link>
       </div>
-
-      {/* Elegant tooltip */}
-      {showTooltip && (
-        <div
-          className="fixed z-50 bg-gradient-to-r from-primary to-secondary text-white text-sm font-medium px-4 py-2 rounded-full shadow-lg pointer-events-none flex items-center justify-center transition-opacity duration-200 opacity-90 hover:opacity-100"
-          style={{
-            left: `${tooltipPosition.x}px`,
-            top: `${tooltipPosition.y}px`,
-          }}
-        >
-          View Project
-        </div>
-      )}
     </motion.div>
   );
 });

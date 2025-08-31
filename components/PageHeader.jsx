@@ -47,7 +47,7 @@ const PageHeader = memo(({ pageHeader }) => {
       <div className="absolute inset-0">
         <Image
           src={backgroundImage}
-          alt=""
+          alt={title}
           layout="fill"
           objectFit="cover"
           quality={60}

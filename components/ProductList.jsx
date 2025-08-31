@@ -8,7 +8,9 @@ export const ProductList = memo(({ ProductList }) => (
       alignment="responsive"
       className="text-center mx-auto lg:!text-left"
     >
-      <Heading className="!text-primary">{ProductList?.productTitle}</Heading>
+      <Heading className="!text-primary lg:!text-4xl sm:!text-2xl md:!text-3xl">
+        {ProductList?.productTitle}
+      </Heading>
     </Header>
     {ProductList?.details.map((product, index) => (
       <div key={index}>

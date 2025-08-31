@@ -13,7 +13,7 @@ const ImageSlider = ({ images, altText, autoplaySpeed = 2000 }) => {
 
     setIsTransitioning(true);
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === images?.length - 1 ? 0 : prevIndex + 1
     );
 
     // Reset timer when manually changing images
@@ -25,7 +25,7 @@ const ImageSlider = ({ images, altText, autoplaySpeed = 2000 }) => {
 
     setIsTransitioning(true);
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? images?.length - 1 : prevIndex - 1
     );
 
     // Reset timer when manually changing images
@@ -88,7 +88,7 @@ const ImageSlider = ({ images, altText, autoplaySpeed = 2000 }) => {
       <div className="relative aspect-video">
         {/* Image container with transitions */}
         <div className="absolute inset-0 transition-opacity duration-500 ease-in-out">
-          {images.map((image, index) => (
+          {images?.map((image, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-all duration-500 ease-in-out ${
@@ -148,12 +148,12 @@ const ImageSlider = ({ images, altText, autoplaySpeed = 2000 }) => {
 
         {/* Image counter */}
         <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-          {currentImageIndex + 1} / {images.length}
+          {currentImageIndex + 1} / {images?.length}
         </div>
 
         {/* Dots navigation */}
         <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-          {images.map((_, index) => (
+          {images?.map((_, index) => (
             <button
               key={index}
               className={`h-2 transition-all duration-300 rounded-full focus:outline-none ${
@@ -173,7 +173,7 @@ const ImageSlider = ({ images, altText, autoplaySpeed = 2000 }) => {
         <div
           className="h-full bg-blue-500 transition-all duration-300 ease-out"
           style={{
-            width: `${(currentImageIndex / (images.length - 1)) * 100}%`,
+            width: `${(currentImageIndex / (images?.length - 1)) * 100}%`,
             transitionDuration: `${
               isTransitioning ? "300ms" : autoplaySpeed + "ms"
             }`,

@@ -23,7 +23,6 @@ export default function ProductTypeCard({ ProductTypes = [] }) {
             key={index}
             className="relative group overflow-hidden rounded-2xl shadow-md cursor-pointer h-full flex flex-col"
           >
-            {/* Image with hover scale effect, rounded corners, and Badge */}
             <div className="relative overflow-hidden rounded-t-2xl h-72 w-full">
               <Image
                 src={type?.image || "/placeholder.svg"}
@@ -36,11 +35,9 @@ export default function ProductTypeCard({ ProductTypes = [] }) {
                 <Badge variant="rental">Rental</Badge>
                 <Badge variant="purchase">Purchase</Badge>
               </div>
-
-              {/* Overlay with button on hover */}
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <Link
-                  href={`/en/ups-saudi-arabia/${(type?.name || "ups")
+                  href={`/en/${type.link}/${(type?.name || "ups")
                     .replace(/\s+/g, "-")
                     .toLowerCase()}`}
                   className="bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition-colors"

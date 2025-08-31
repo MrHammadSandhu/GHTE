@@ -23,6 +23,7 @@ const Button = memo(
     onClick,
     disabled = false,
     fullWidth = false,
+    htmlType = "button",
   }) => {
     const sizeClasses = {
       sm: "py-2 px-4 text-sm",
@@ -30,7 +31,6 @@ const Button = memo(
       lg: "py-3 sm:py-4 px-5 sm:px-6 text-base sm:text-lg",
     };
 
-    // Remove the hover effects from the base buttonStyles
     const baseButtonClass =
       buttonStyles[type]?.replace(/hover:[^ ]+/g, "") ||
       buttonStyles.primary.replace(/hover:[^ ]+/g, "");
@@ -44,17 +44,16 @@ const Button = memo(
       ${disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}
     `;
 
-    // Determine the hover overlay color based on button type
     const getOverlayColor = () => {
       switch (type) {
         case "primary":
-          return "bg-secondary"; // Changed to secondary
+          return "bg-secondary";
         case "secondary":
-          return "bg-primary"; // Changed to primary
+          return "bg-primary";
         case "transparent":
-          return "bg-primary"; // Changed to primary
+          return "bg-primary";
         case "outline":
-          return "bg-primary/5"; // Kept the same
+          return "bg-primary/5";
         default:
           return "bg-secondary";
       }
@@ -74,20 +73,8 @@ const Button = memo(
       </>
     );
 
-    if (onClick) {
+    if (href) {
       return (
-        <button
-          onClick={disabled ? undefined : onClick}
-          className={commonClasses}
-          disabled={disabled}
-        >
-          <ButtonContent />
-        </button>
-      );
-    }
-
-    return (
-      <div>
         <Link
           href={href}
           className={commonClasses}
@@ -96,7 +83,18 @@ const Button = memo(
         >
           <ButtonContent />
         </Link>
-      </div>
+      );
+    }
+
+    return (
+      <button
+        type={htmlType}
+        onClick={disabled ? undefined : onClick}
+        className={commonClasses}
+        disabled={disabled}
+      >
+        <ButtonContent />
+      </button>
     );
   }
 );

@@ -1,56 +1,70 @@
-"use client";
-import CtaBox from "@/components/CtaBox";
+import { Description, Header, Heading } from "@/components/Headings";
+import { IndustryApplications } from "@/components/IndustryApplications";
+import ImageSlider from "@/components/ImageSlider";
+import Sidebar from "@/components/Sidebar";
 import PageHeader from "@/components/PageHeader";
+import { SideCategoriesList } from "@/components/CategoriesList";
+import { ProductList } from "@/components/ProductList";
+import ProductTypeCard from "@/components/ProductTypeCard";
 import SEOHead from "@/components/SeoHead";
-import ServiceBenefit from "@/components/ServiceBenefit";
-import ServiceSingle from "@/components/ServiceSingle";
-import VendorSlider from "@/components/Vendor";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
+import FaqAccordion from "@/components/FaqAccordion";
+import { SERVER_COMPUTER_PAGE_DATA } from "@/data/server-computer-page-data";
 
-// Import data from serverAndComputerSolutionData.js
-import {
-  metadata,
-  pageHeader,
-  Sidebarcategories,
-  mainPageContent,
-  benefitItems,
-  whychooseus,
-} from "@/data/serverAndComputerSolutionData";
-
-const page = ({ params }) => {
-  const t = useTranslations("computer_solution");
-  const [resolvedParams, setResolvedParams] = useState(null);
-
-  useEffect(() => {
-    const fetchParams = async () => {
-      const resolved = await params; // Unwrap the Promise
-      setResolvedParams(resolved);
-    };
-
-    fetchParams();
-  }, [params]);
-
-  if (!resolvedParams) return null; // Handle loading states
+export default async function ServerComputerPage({ params: { locale } }) {
+  const {
+    metadata,
+    pageHeader,
+    sidebarCategories,
+    serverComputerData,
+    productData,
+    SERVER_COMPUTER_TYPES,
+    SERVER_COMPUTER_APPLICATIONS,
+    SERVER_COMPUTER_FAQS,
+    whychooseus,
+    sidebar,
+  } = SERVER_COMPUTER_PAGE_DATA;
 
   return (
     <>
       <SEOHead
         title={metadata.title.default}
         description={metadata.description}
-        locale={resolvedParams.locale} // Use the resolved locale
-        pageUrl="/server-and-computer-solution-in-saudia-arabia" // Use the resolved locale
+        locale={locale}
+        pageUrl="/server-computer-solutions-saudi-arabia"
       />
-      <PageHeader pageHeader={pageHeader(t)} />
-      <ServiceSingle
-        mainPageContent={mainPageContent(t)}
-        Sidebarcategories={Sidebarcategories(t)}
-      />
-      <ServiceBenefit items={benefitItems(t)} />
-      <WhyChooseUs whychooseus={whychooseus(t)} />
+      <PageHeader pageHeader={pageHeader} />
+
+      <section className="container mx-auto px-4 sm:px-6 md:px-4 xl:px-12 py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          <div className="lg:col-span-2 space-y-10">
+            <ImageSlider
+              images={serverComputerData.images}
+              altText={"Server and Computer Solutions Images"}
+            />
+            <Header
+              alignment="responsive"
+              className="text-center mx-auto lg:!text-left"
+            >
+              <Heading className="!text-primary lg:!text-4xl sm:!text-2xl md:!text-3xl">
+                {serverComputerData.title}
+              </Heading>
+              <Description>{serverComputerData.description}</Description>
+            </Header>
+            <ProductList ProductList={productData} />
+          </div>
+
+          <div className="lg:col-span-1 space-y-4">
+            <SideCategoriesList sidebarCatagories={sidebarCategories} />
+            <Sidebar sidebar={sidebar} />
+          </div>
+        </div>
+
+        <ProductTypeCard ProductTypes={SERVER_COMPUTER_TYPES} />
+        <IndustryApplications applications={SERVER_COMPUTER_APPLICATIONS} />
+        <WhyChooseUs whychooseus={whychooseus} />
+        <FaqAccordion faqs={SERVER_COMPUTER_FAQS.details} />
+      </section>
     </>
   );
-};
-
-export default page;
+}

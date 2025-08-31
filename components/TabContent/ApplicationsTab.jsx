@@ -12,8 +12,8 @@ const ApplicationsTab = ({ applications, maintenanceInfo, faqs }) => {
       </div>
       <div>
         <CardHeading className="!text-primary">Ideal Applications</CardHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {applications.map((app, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+          {applications?.map((app, index) => (
             <div key={index} className="border rounded-lg shadow-sm bg-white">
               <div className="p-4">
                 <div className="flex items-start">

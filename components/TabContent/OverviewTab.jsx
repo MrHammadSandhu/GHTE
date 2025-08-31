@@ -7,16 +7,15 @@ const OverviewTab = ({ typeData }) => {
       <div className="prose max-w-none">
         <Header alignment="left">
           <CardHeading className="!text-primary">Product Overview</CardHeading>
-          <Description>{typeData.detailedDescription}</Description>
+          <Description>{typeData?.detailedDescription}</Description>
         </Header>
       </div>
 
       <div className="space-y-4">
         <CardHeading className="!text-primary">Key Features</CardHeading>
         <ul className="grid grid-cols-1 xl:grid-cols-2 gap-2">
-          {typeData.features.map((feature, index) => (
+          {typeData?.features?.map((feature, index) => (
             <li key={index} className="flex items-center justify-start">
-              {/* Icon or Bullet Point */}
               <div className="mr-2 flex-shrink-0">
                 <ArrownRightIcon />
               </div>
@@ -28,7 +27,7 @@ const OverviewTab = ({ typeData }) => {
       <div className="space-y-8">
         <CardHeading className="!text-primary">Benefits</CardHeading>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {typeData.benefits.map((benefit, index) => (
+          {typeData?.benefits?.map((benefit, index) => (
             <div
               key={index}
               className="border rounded-lg shadow-sm bg-white p-4"

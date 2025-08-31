@@ -37,7 +37,7 @@ const Navbar = () => {
         { href: "/generators-saudi-arabia", key: "generators" },
         { href: "/load-bank-rental-saudi-arabia", key: "load_banks" },
         {
-          href: "/automatic-voltage-regulator-services-Saudi-Arabia",
+          href: "/automatic-voltage-regulator-services-saudi-arabia",
           key: "avrs",
         },
       ],
@@ -45,7 +45,7 @@ const Navbar = () => {
     {
       menuName: "security",
       links: [
-        { href: "/cctv-systems-services", key: "cctv" },
+        { href: "/cctv-solutions-saudi-arabia", key: "cctv" },
         {
           href: "/access-control-systems-in-saudi-arabia",
           key: "access_control",
@@ -129,7 +129,7 @@ const Navbar = () => {
             className="relative group text-light text-[18px] flex items-center"
           >
             <div className="flex items-center gap-x-2 group-hover:font-semibold cursor-pointer">
-              {t(menuName)} {/* Use key directly */}
+              {t(menuName)}
             </div>
             <svg
               width="20px"
@@ -153,7 +153,7 @@ const Navbar = () => {
                   href={href}
                   className="block hover:text-secondary hover:translate-x-1 transition-all py-2 px-4"
                 >
-                  {t(key)} {/* Use key directly */}
+                  {t(key)}
                 </Link>
               ))}
             </div>

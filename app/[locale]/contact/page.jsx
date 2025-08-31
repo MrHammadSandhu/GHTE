@@ -16,22 +16,22 @@ const page = ({ params }) => {
 
   useEffect(() => {
     const fetchParams = async () => {
-      const resolved = await params; // Unwrap the Promise
+      const resolved = await params;
       setResolvedParams(resolved);
     };
 
     fetchParams();
   }, [params]);
 
-  if (!resolvedParams) return null; // You might want to handle loading states
+  if (!resolvedParams) return null;
 
   return (
     <>
       <SEOHead
         title={metadata.title.default}
         description={metadata.description}
-        locale={resolvedParams.locale} // Use the resolved locale
-        pageUrl="/contact" // Use the resolved locale
+        locale={resolvedParams.locale}
+        pageUrl="/contact"
       />
       <PageHeader pageHeader={pageHeader(t)} />
       <ContactUs />

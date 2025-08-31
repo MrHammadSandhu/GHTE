@@ -1,28 +1,31 @@
 "use client";
 import React, { useState, useMemo, useCallback, memo } from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import {
   containerVariants,
   headingVariants,
   useInView,
   motion,
 } from "@/utils/animations";
-import { Description, Header, Heading, SubHeading } from "./Headings";
-import { getProjectsData } from "@/data/allProjectsData";
+import {
+  CardHeading,
+  Description,
+  Header,
+  Heading,
+  SubHeading,
+} from "./Headings";
+import Image from "next/image";
 
-const Projects = memo(() => {
-  const t = useTranslations("AllProjects");
-  const projects = useMemo(() => getProjectsData(t), [t]);
+const Projects = memo(({ projectsData }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.01 });
 
   return (
     <ProjectsSection
-      ref={ref}
+      innerRef={ref}
       inView={inView}
-      projects={projects}
-      translations={t}
+      projects={projectsData.projects}
+      sectionHeader={projectsData.sectionHeader}
       selectedCategory={selectedCategory}
       setSelectedCategory={setSelectedCategory}
     />
@@ -31,10 +34,10 @@ const Projects = memo(() => {
 
 const ProjectsSection = memo(
   ({
-    ref,
+    innerRef,
     inView,
     projects,
-    translations: t,
+    sectionHeader,
     selectedCategory,
     setSelectedCategory,
   }) => {
@@ -58,17 +61,19 @@ const ProjectsSection = memo(
     return (
       <motion.div
         className="py-16"
-        ref={ref}
+        ref={innerRef}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 space-y-8 md:space-y-12">
           <Header>
-            <SubHeading>{t("heading")}</SubHeading>
-            <Heading className="!text-primary">{t("subheading")}</Heading>
+            <SubHeading>{sectionHeader.heading}</SubHeading>
+            <Heading className="!text-primary">
+              {sectionHeader.subheading}
+            </Heading>
             <Description className="!text-textcolor max-w-3xl mx-auto">
-              {t("description")}
+              {sectionHeader.description}
             </Description>
           </Header>
 
@@ -80,7 +85,7 @@ const ProjectsSection = memo(
 
           <ProjectGrid
             projects={filteredProjects}
-            viewMoreText={t("view_more_btn")}
+            viewMoreText={sectionHeader.viewMoreBtn}
           />
         </div>
       </motion.div>
@@ -125,46 +130,51 @@ const ProjectGrid = memo(({ projects, viewMoreText }) => (
   </div>
 ));
 
-const ProjectCard = memo(({ project, index, viewMoreText }) => (
-  <motion.div
-    className="relative overflow-hidden mx-auto max-w-sm text-center group"
-    variants={headingVariants}
-  >
-    <div className="overflow-hidden rounded-3xl relative">
-      <Link href={project.link} className="block relative">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full rounded-lg aspect-[1/1.2] object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/50 to-black/70 rounded-lg"></div>
-      </Link>
-    </div>
+const ProjectCard = memo(({ project }) => {
+  return (
+    <motion.div
+      className="relative overflow-hidden mx-auto w-full text-center group rounded-[30px] shadow-md hover:shadow-lg transition-shadow duration-300 h-full"
+      variants={headingVariants}
+    >
+      <div className="overflow-hidden rounded-[30px] relative h-full">
+        <Link href={project.link} className="block relative h-full">
+          {/* Project Image */}
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={500}
+            height={750}
+            className="w-full aspect-[1/1.5] object-cover transition-transform duration-500 group-hover:scale-110 rounded-[30px]"
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            priority={false}
+          />
 
-    {/* Project Info */}
-    <div className="absolute bottom-12 left-6 right-6 bg-opacity-0 text-left transform translate-y-full group-hover:translate-y-0 group-hover:bg-opacity-100 transition-all duration-500">
-      <h3 className="text-xl font-bold text-white capitalize mb-7">
-        {project.title}
-      </h3>
-      <p className="text-lg text-white mb-4 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out">
-        {project.description}
-      </p>
-      <a
-        href={project.link}
-        className="absolute text-secondary font-semibold capitalize text-lg hover:text-white flex items-center justify-start -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"
-      >
-        {viewMoreText}
-        <img
-          src="/arrow.svg"
-          alt="svg"
-          className="relative z-10 transform transition-transform duration-300 group-hover:translate-x-2"
-        />
-      </a>
-    </div>
-  </motion.div>
-));
+          {/* Black overlay gradient always visible */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80 rounded-[30px] opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
 
-// Add display names for better debugging
+          {/* Text content */}
+          <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7 text-left transform transition-all duration-500 ease-out">
+            {/* Title always visible */}
+            <CardHeading className="!text-white mb-2 sm:mb-3">
+              {project.title}
+            </CardHeading>
+
+            {/* Description revealed on hover */}
+            <div className="overflow-hidden transition-all duration-500 ease-out max-h-0 group-hover:max-h-32">
+              <Description className="!text-white/90 text-sm sm:text-base transition-opacity duration-300">
+                {project.description}
+              </Description>
+            </div>
+          </div>
+        </Link>
+      </div>
+    </motion.div>
+  );
+});
+
+
+// Display names for debugging
 Projects.displayName = "Projects";
 ProjectsSection.displayName = "ProjectsSection";
 CategoryFilter.displayName = "CategoryFilter";

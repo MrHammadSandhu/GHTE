@@ -1,57 +1,68 @@
-"use client";
-import CtaBox from "@/components/CtaBox";
-import TransitionEffect from "@/components/Loader";
+import { Description, Header, Heading } from "@/components/Headings";
+import { IndustryApplications } from "@/components/IndustryApplications";
+import ImageSlider from "@/components/ImageSlider";
+import Sidebar from "@/components/Sidebar";
 import PageHeader from "@/components/PageHeader";
+import { SideCategoriesList } from "@/components/CategoriesList";
+import { ProductList } from "@/components/ProductList";
+import ProductTypeCard from "@/components/ProductTypeCard";
 import SEOHead from "@/components/SeoHead";
-import ServiceBenefit from "@/components/ServiceBenefit";
-import ServiceSingle from "@/components/ServiceSingle";
-import VendorSlider from "@/components/Vendor";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
+import FaqAccordion from "@/components/FaqAccordion";
+import { BATTERY_PAGE_DATA } from "@/data/battery-page-data";
 
-// Import data from batteryData.js
-import {
-  metadata,
-  pageHeader,
-  Sidebarcategories,
-  mainPageContent,
-  benefitItems,
-  whychooseus,
-} from "@/data/batteryData";
-
-const page = ({ params }) => {
-  const t = useTranslations("Batteries");
-  const [resolvedParams, setResolvedParams] = useState(null);
-
-  useEffect(() => {
-    const fetchParams = async () => {
-      const resolved = await params; // Unwrap the Promise
-      setResolvedParams(resolved);
-    };
-
-    fetchParams();
-  }, [params]);
-
-  if (!resolvedParams) return null; // You might want to handle loading states
+export default async function BatteryPage({ params: { locale } }) {
+  const {
+    metadata,
+    pageHeader,
+    sidebarCategories,
+    batteryData,
+    productData,
+    batteryTypes,
+    industryApplications,
+    batteryFaqs,
+    whyChooseUs,
+    sidebar,
+  } = BATTERY_PAGE_DATA;
 
   return (
     <>
       <SEOHead
         title={metadata.title.default}
         description={metadata.description}
-        locale={resolvedParams.locale} // Use the resolved locale
-        pageUrl="/battery-solutions-saudi-arabia" // Use the resolved locale
+        locale={locale}
+        pageUrl="/battery-solutions-saudi-arabia"
       />
-      <PageHeader pageHeader={pageHeader(t)} />
-      <ServiceSingle
-        mainPageContent={mainPageContent(t)}
-        Sidebarcategories={Sidebarcategories(t)}
-      />
-      <ServiceBenefit items={benefitItems(t)} />
-      <WhyChooseUs whychooseus={whychooseus(t)} />
+      <PageHeader pageHeader={pageHeader} />
+
+      <section className="container mx-auto px-4 sm:px-6 md:px-4 xl:px-12 py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          <div className="lg:col-span-2 space-y-10">
+            <ImageSlider
+              images={batteryData.images}
+              altText={"Battery Images"}
+            />
+            <Header
+              alignment="responsive"
+              className="text-center mx-auto lg:!text-left"
+            >
+              <Heading className="!text-primary">{batteryData.title}</Heading>
+              <Description>{batteryData.description}</Description>
+            </Header>
+            <ProductList ProductList={productData} />
+          </div>
+
+          <div className="lg:col-span-1 space-y-4">
+            <SideCategoriesList sidebarCatagories={sidebarCategories} />
+            <Sidebar sidebar={sidebar} />
+          </div>
+        </div>
+
+        <ProductTypeCard ProductTypes={batteryTypes} />
+        <IndustryApplications applications={industryApplications} />
+        <WhyChooseUs whychooseus={whyChooseUs} />
+        <FaqAccordion faqs={batteryFaqs.details} />
+      </section>
     </>
   );
-};
-
-export default page;
+}

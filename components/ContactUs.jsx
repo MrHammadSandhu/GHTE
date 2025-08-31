@@ -5,52 +5,34 @@ import { useTranslations } from "next-intl";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
-import {
-  containerVariants,
-  headingVariants,
-  paragraphVariants,
-  buttonVariants,
-  motion,
-} from "@/utils/animations";
 import { Description, Heading, SubHeading } from "./Headings";
+import { ArrowWithCircleIcon, MailIcon, PhoneIcon } from "./Icons";
+import Button from "./Button";
 
 // Memoized Sidebar component
 const ContactSidebar = memo(({ t }) => (
-  <motion.div
-    className="bg-primary text-center rounded-3xl p-0 pb-0"
-    variants={containerVariants}
-  >
-    <div className="p-8 pb-0">
-      <motion.div className="my-8" variants={containerVariants}>
-        <Image
-          src="/icon-phone.svg"
-          alt="Phone Icon"
-          width={48}
-          height={48}
-          className="mx-auto mb-4"
-        />
+  <div className="bg-primary text-center rounded-3xl p-0 pb-0">
+    <div className="p-8 pb-0 space-y-10">
+      {/* Phone Block */}
+      <div className="flex flex-col items-center space-y-3">
+        <div className="bg-white/10 p-3 rounded-full">
+          <PhoneIcon className="h-6 w-6 text-white" />
+        </div>
         <Description className="text-white">{t("Support")}</Description>
         <SubHeading>{t("phone")}</SubHeading>
-      </motion.div>
+      </div>
 
-      {/* Email Info */}
-      <motion.div
-        className="my-8 flex flex-col items-center justify-center"
-        variants={containerVariants}
-      >
-        <Image
-          src="/icon-mail.svg"
-          alt="Mail Icon"
-          width={48}
-          height={48}
-          className="mx-auto mb-4"
-        />
+      {/* Email Block */}
+      <div className="flex flex-col items-center space-y-3">
+        <div className="bg-white/10 p-3 rounded-full">
+          <MailIcon className="h-6 w-6 text-white" />
+        </div>
         <Description className="text-white">{t("write-to-us")}</Description>
         <SubHeading>{t("email")}</SubHeading>
-      </motion.div>
+      </div>
 
       {/* Robot Image */}
-      <motion.div className="mx-auto w-32 md:w-48" variants={containerVariants}>
+      <div className="mx-auto w-32 md:w-48">
         <Image
           src="/main/robotphone.webp"
           alt="Robot Phone"
@@ -58,15 +40,14 @@ const ContactSidebar = memo(({ t }) => (
           height={192}
           className="grayscale hover:grayscale-0 transition"
         />
-      </motion.div>
+      </div>
     </div>
-  </motion.div>
+  </div>
 ));
-
 // Form Input component
 const FormInput = memo(
   ({ type, name, value, onChange, placeholder, required = true }) => (
-    <motion.input
+    <input
       type={type}
       name={name}
       value={value}
@@ -74,7 +55,6 @@ const FormInput = memo(
       className="w-full px-4 py-3 border-b border-gray-300 focus:outline-none focus:border-primary"
       placeholder={placeholder}
       required={required}
-      variants={paragraphVariants}
     />
   )
 );
@@ -82,21 +62,12 @@ const FormInput = memo(
 // Form component
 const ContactForm = memo(
   ({ t, formData, handleInputChange, handleSubmit, loading }) => (
-    <motion.div
-      className="lg:col-span-2 bg-white rounded-3xl p-8 lg:p-14"
-      variants={containerVariants}
-    >
-      <motion.div className="mb-8" variants={containerVariants}>
-        <SubHeading>{t("title")}</SubHeading>
+    <div className="lg:col-span-2 bg-white rounded-3xl p-8 lg:p-14">
+      <div className="mb-8">
         <Heading className="!text-primary">{t("maintitle")}</Heading>
-      </motion.div>
+      </div>
 
-      <motion.form
-        id="inquiry-form"
-        className="space-y-6"
-        onSubmit={handleSubmit}
-        variants={containerVariants}
-      >
+      <form id="inquiry-form" className="space-y-6" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormInput
             type="text"
@@ -131,7 +102,7 @@ const ContactForm = memo(
           />
         </div>
 
-        <motion.textarea
+        <textarea
           name="message"
           value={formData.message}
           onChange={handleInputChange}
@@ -139,35 +110,20 @@ const ContactForm = memo(
           className="w-full px-4 py-3 border-b border-gray-300 focus:outline-none focus:border-primary"
           placeholder={t("placeHolder-message")}
           required
-          variants={paragraphVariants}
-        ></motion.textarea>
+        ></textarea>
 
         <div className="flex justify-start">
-          <motion.button
-            type="submit"
+          <Button
+            htmlType="submit"
+            size="md"
             disabled={loading}
-            className={`group relative text-white flex items-center justify-between py-3 px-8 rounded-xl border-light border-[1px] ${
-              loading ? "bg-gray-400" : "bg-secondary"
-            } overflow-hidden transition-all duration-300`}
-            variants={buttonVariants}
+            fullWidth={false}
           >
-            <span className="absolute inset-0 bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
-            <span className="relative z-10">
-              {loading ? "Sending..." : t("submit-btn")}
-            </span>
-            {!loading && (
-              <Image
-                src="/arrow.svg"
-                alt="arrow"
-                width={20}
-                height={20}
-                className="ml-2 relative z-10 transform transition-transform duration-300 group-hover:translate-x-2"
-              />
-            )}
-          </motion.button>
+            {loading ? "Sending..." : t("submit-btn")}
+          </Button>
         </div>
-      </motion.form>
-    </motion.div>
+      </form>
+    </div>
   )
 );
 
@@ -193,7 +149,7 @@ const ContactUs = () => {
       setLoading(true);
 
       try {
-        const response = await axios.post(
+        await axios.post(
           `https://ghtebackend.vercel.app/api/send-email`,
           formData
         );
@@ -235,14 +191,8 @@ const ContactUs = () => {
   );
 
   return (
-    <motion.section
-      className="bg-light bg-center bg-cover py-8 sm:py-12 md:py-16"
-      initial="hidden"
-      whileinview="visible"
-      viewport={{ once: true, amount: 0.1 }}
-      variants={containerVariants}
-    >
-      <div className="container mx-auto  px-4 sm:px-6 md:px-8 lg:px-12">
+    <section className="bg-light bg-center bg-cover py-8 sm:py-12 md:py-16">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <ContactSidebar t={t} />
           <ContactForm
@@ -255,7 +205,7 @@ const ContactUs = () => {
         </div>
       </div>
       <ToastContainer limit={3} />
-    </motion.section>
+    </section>
   );
 };
 

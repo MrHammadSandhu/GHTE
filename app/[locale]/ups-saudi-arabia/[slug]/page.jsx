@@ -1,65 +1,62 @@
 "use client";
-import { useEffect, useState } from "react";
-import CtaBox from "@/components/CtaBox";
-import VendorSlider from "@/components/Vendor";
-import { upsTypesData } from "@/data/ups-types";
+
+import { use, useState } from "react";
 import ImageSlider from "@/components/ImageSlider";
 import TabNavigation from "@/components/TabNavigation";
-import UpsTypeAccordion from "@/components/UpsTypeAccordion";
 import Sidebar from "@/components/Sidebar";
 import OverviewTab from "@/components/TabContent/OverviewTab";
 import SpecificationsTab from "@/components/TabContent/SpecificationsTab";
 import ApplicationsTab from "@/components/TabContent/ApplicationsTab";
-import ResourcesTab from "@/components/TabContent/ResourcesTab";
 import BuyVsRentTab from "@/components/TabContent/BuyVsRentTab";
 import SEOHead from "@/components/SeoHead";
 import PageHeader from "@/components/PageHeader";
-import { metadata, pageHeader } from "@/data/OnlineUps";
-// Import all UPS type data
-import { OnlineUpsData } from "@/data/OnlineUps";
-// Add other UPS type data imports as needed
+
+import {
+  LINE_INTERACTIVE_UPS_DATA,
+  ONLINE_UPS_DATA,
+  STANDBY_UPS_DATA,
+} from "@/data/ups-page-data";
 
 const UpsSystemDetailPage = ({ params }) => {
+  const resolvedParams = use(params);
   const [activeTab, setActiveTab] = useState("overview");
-  const [typeData, setTypeData] = useState(null);
-  const [resolvedParams, setResolvedParams] = useState(null);
 
-  useEffect(() => {
-    const fetchParams = async () => {
-      const resolved = await params;
-      setResolvedParams(resolved);
-      const upsType = resolved.slug || "";
-      switch (upsType) {
-        case "online-ups":
-          setTypeData(OnlineUpsData);
-          break;
-        // case "standby-ups":
-        //   setTypeData(StandbyUpsData);
-        //   break;
-        // case "line-interactive-ups":
-        //   setTypeData(LineInteractiveUpsData);
-        //   break;
-        default:
-          setTypeData(OnlineUpsData);
-      }
-    };
+  let selectedData;
+  let typeKey = "";
 
-    fetchParams();
-  }, [params]);
+  switch (resolvedParams.slug) {
+    case "online-ups":
+      selectedData = ONLINE_UPS_DATA;
+      typeKey = "OnlineUpsData";
+      break;
+    case "standby-ups":
+      selectedData = STANDBY_UPS_DATA;
+      typeKey = "StandbyUpsData";
+      break;
+    case "line-interactive-ups":
+      selectedData = LINE_INTERACTIVE_UPS_DATA;
+      typeKey = "LineInteractiveUpsData";
+      break;
+    default:
+      selectedData = ONLINE_UPS_DATA;
+      typeKey = "OnlineUpsData";
+  }
 
-  if (!resolvedParams || !typeData) return null;
-  const currentMetadata = typeData.metadata || metadata;
-  const currentPageHeader = typeData.pageHeader || pageHeader;
+  const typeData = {
+    ...(selectedData[typeKey] || {}),
+    metadata: selectedData.metadata,
+    pageHeader: selectedData.pageHeader,
+  };
 
   return (
     <>
       <SEOHead
-        title={currentMetadata.title.default}
-        description={currentMetadata.description}
+        title={typeData.metadata?.title?.default}
+        description={typeData.metadata?.description}
         locale={resolvedParams.locale}
-        pageUrl={`/ups-saudi-arabia/${resolvedParams.type || "online"}`}
+        pageUrl={`/ups-saudi-arabia/${resolvedParams.slug || "online-ups"}`}
       />
-      <PageHeader pageHeader={currentPageHeader} />
+      <PageHeader pageHeader={typeData.pageHeader} />
       <div className="bg-gray-50">
         <div className="container mx-auto py-8 px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -73,7 +70,6 @@ const UpsSystemDetailPage = ({ params }) => {
                 {activeTab === "overview" && (
                   <OverviewTab typeData={typeData} />
                 )}
-
                 {activeTab === "specifications" && (
                   <SpecificationsTab
                     specifications={typeData.specifications}
@@ -81,7 +77,6 @@ const UpsSystemDetailPage = ({ params }) => {
                     installationRequirements={typeData.installationRequirements}
                   />
                 )}
-
                 {activeTab === "applications" && (
                   <ApplicationsTab
                     applications={typeData.applications}
@@ -89,7 +84,6 @@ const UpsSystemDetailPage = ({ params }) => {
                     faqs={typeData.faqs}
                   />
                 )}
-
                 {activeTab === "buyvsrent" && (
                   <BuyVsRentTab
                     buyVsRent={typeData.buyVsRent}
@@ -98,12 +92,6 @@ const UpsSystemDetailPage = ({ params }) => {
                   />
                 )}
               </div>
-
-              {/* UPS Types Section */}
-              <UpsTypeAccordion
-                upsTypes={upsTypesData}
-                currentUpsId={typeData.id}
-              />
             </div>
 
             <div className="lg:col-span-1">

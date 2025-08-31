@@ -25,7 +25,7 @@ export const getServicesData = (t) => [
         title: t("services.AVR.title"),
         description: t("services.AVR.description"),
         image: "/avr/avr.webp",
-        link: "/automatic-voltage-regulator-services-Saudi-Arabia",
+        link: "/automatic-voltage-regulator-services-saudi-arabia",
       },
       {
         title: t("services.Generator.title"),
@@ -42,7 +42,7 @@ export const getServicesData = (t) => [
         title: t("services.CCTV.title"),
         description: t("services.CCTV.description"),
         image: "/cctv/cctv.webp",
-        link: "/cctv-systems-services",
+        link: "/cctv-solutions-saudi-arabia",
       },
       {
         title: t("services.Access_Control.title"),

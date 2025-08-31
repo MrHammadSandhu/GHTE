@@ -3,9 +3,9 @@
 const TabNavigation = ({ activeTab, setActiveTab }) => {
   const tabs = [
     { id: "overview", label: "Overview" },
-    { id: "specifications", label: "Specifications" },
-    { id: "applications", label: "Applications" },
     { id: "buyvsrent", label: "Buy vs Rent" },
+    { id: "applications", label: "Applications" },
+    { id: "specifications", label: "Installation Requirements" },
   ];
 
   return (

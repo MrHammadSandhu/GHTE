@@ -1,56 +1,69 @@
-"use client";
-import CtaBox from "@/components/CtaBox";
+import { Description, Header, Heading } from "@/components/Headings";
+import { IndustryApplications } from "@/components/IndustryApplications";
+import ImageSlider from "@/components/ImageSlider";
+import Sidebar from "@/components/Sidebar";
 import PageHeader from "@/components/PageHeader";
+import { SideCategoriesList } from "@/components/CategoriesList";
+import { ProductList } from "@/components/ProductList";
+import ProductTypeCard from "@/components/ProductTypeCard";
 import SEOHead from "@/components/SeoHead";
-import ServiceBenefit from "@/components/ServiceBenefit";
-import ServiceSingle from "@/components/ServiceSingle";
-import VendorSlider from "@/components/Vendor";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
+import FaqAccordion from "@/components/FaqAccordion";
+import { LOAD_BANK_PAGE_DATA } from "@/data/load-bank-page-data";
 
-// Import data from loadBankData.js
-import {
-  metadata,
-  pageHeader,
-  Sidebarcategories,
-  mainPageContent,
-  benefitItems,
-  whychooseus,
-} from "@/data/loadBankData";
-
-const page = ({ params }) => {
-  const t = useTranslations("Load_Banks");
-  const [resolvedParams, setResolvedParams] = useState(null);
-
-  useEffect(() => {
-    const fetchParams = async () => {
-      const resolved = await params; // Unwrap the Promise
-      setResolvedParams(resolved);
-    };
-
-    fetchParams();
-  }, [params]);
-
-  if (!resolvedParams) return null; // Handle loading states
+export default async function Page({ params: { locale } }) {
+  const {
+    metadata,
+    pageHeader,
+    sidebarCategories,
+    loadBankData,
+    productData,
+    loadBankFaqs,
+    whyChooseUs,
+    loadBankTypes,
+    industryApplications,
+    sidebar,
+  } = LOAD_BANK_PAGE_DATA;
 
   return (
     <>
       <SEOHead
         title={metadata.title.default}
         description={metadata.description}
-        locale={resolvedParams.locale} // Use the resolved locale
-        pageUrl="/load-bank-rental-saudi-arabia" // Use the resolved locale
+        locale={locale}
+        pageUrl="/load-bank-rental-saudi-arabia"
       />
-      <PageHeader pageHeader={pageHeader(t)} />
-      <ServiceSingle
-        mainPageContent={mainPageContent(t)}
-        Sidebarcategories={Sidebarcategories(t)}
-      />
-      <ServiceBenefit items={benefitItems(t)} />
-      <WhyChooseUs whychooseus={whychooseus(t)} />
+      <PageHeader pageHeader={pageHeader} />
+      <section>
+        <div className="container mx-auto px-4 sm:px-6 md:px-4 xl:px-12 py-8 sm:py-12 md:py-16 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div className="lg:col-span-2 space-y-10">
+              <ImageSlider
+                images={loadBankData.images}
+                altText="Load Bank Rental Images"
+              />
+              <Header
+                alignment="responsive"
+                className="text-center mx-auto lg:!text-left"
+              >
+                <Heading className="!text-primary lg:!text-4xl sm:!text-2xl md:!text-3xl">
+                  {loadBankData.title}
+                </Heading>
+                <Description>{loadBankData.description}</Description>
+              </Header>
+              <ProductList ProductList={productData} />
+            </div>
+            <div className="lg:col-span-1 space-y-4">
+              <SideCategoriesList sidebarCatagories={sidebarCategories} />
+              <Sidebar sidebar={sidebar} />
+            </div>
+          </div>
+        </div>
+        <ProductTypeCard ProductTypes={loadBankTypes} />
+        <IndustryApplications applications={industryApplications} />
+        <WhyChooseUs whychooseus={whyChooseUs} />
+        <FaqAccordion faqs={loadBankFaqs} />
+      </section>
     </>
   );
-};
-
-export default page;
+}
